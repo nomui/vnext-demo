@@ -28,8 +28,7 @@
   
 
       win.nomapp = new nomui.App({
-        viewsDir: 'page',
-        // defaultPath: '!dashboard/org',
+        viewsDir: 'platform',
         defaultPath: '_layout',
         isFixedLayout: false,
 
