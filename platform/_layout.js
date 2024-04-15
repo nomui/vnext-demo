@@ -14,31 +14,33 @@ define(['menu-data.js', 'css!main.css'], function (menuData) {
       },
       children: {
         component: 'Layout',
-        body: {
-          children: [
-           {
+        header:{
+          children:{
+            classes:{
+              'vnext-platform-main-sider-logo':true
+            },
             children: {
               component: 'Image',
               ref:(c)=>{
                 refs.mainLogo = c
               },
-              src: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-              width:70,
-              height:70,
+              src: '/image/wetrial-logo.png',
+              width:60,
               alt:'VNext',
              
             },
            },
-            {
-              component: 'Menu',
-              compact: true,
-              ref: (c) => {
-                mainMenuRef = c
-              },
-              items: items,
-              itemSelectable: true,
-            }
-          ]
+        },
+        body: {
+          children: {
+            component: 'Menu',
+            compact: true,
+            ref: (c) => {
+              mainMenuRef = c
+            },
+            items: items,
+            itemSelectable: true,
+          }
         },
         footer: {
           children: {

@@ -1,22 +1,52 @@
 define([], function () {
   const menuItems = [
     {
-      text: "工作流",
+      text: "首页",
       icon: "edit",
       url: "#!workflow",
       key: "#!workflow",
     },
     {
-      text: "列表",
+      text: "消息",
       icon: "edit",
-      url: "#!pro-list",
-      key: "#!pro-list",
+      url: "#!workflow",
+      key: "#!workflow",
     },
     {
-      text: "卡片群组",
+      text: "日历",
       icon: "edit",
-      url: "#!pro-group",
-      key: "#!pro-group",
+      url: "#!workflow",
+      key: "#!workflow",
+    },
+    {
+      text: "项目",
+      icon: "edit",
+      url: "#!workflow",
+      key: "#!workflow",
+    },
+    {
+      text: "工作台",
+      icon: "edit",
+      url: "#!workflow",
+      key: "#!workflow",
+    },
+    {
+      text: "联系人",
+      icon: "edit",
+      url: "#!workflow",
+      key: "#!workflow",
+    },
+    {
+      text: "云盘",
+      icon: "edit",
+      url: "#!workflow",
+      key: "#!workflow",
+    },
+    {
+      text: "统计",
+      icon: "edit",
+      url: "#!workflow",
+      key: "#!workflow",
     },
 
   ];

@@ -1,6 +1,41 @@
+/*滚动条整体粗细样式*/
+.vnext-platform-main-sider ::-webkit-scrollbar {
+    width: 3px;
+}
+
+/*滚动条里面小方块*/
+.vnext-platform-main-sider ::-webkit-scrollbar-thumb {
+    background: var(--nom-color-primary);
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
 .vnext-platform-main-sider {
-    width:auto !important;
+    width: auto !important;
     min-width: 80px;
     background: #14234A;
-    color:#ffffff85;
+    color: #ffffff85;
+    text-align: center;
+    padding: .5rem 0;
+}
+
+.vnext-platform-main-sider-logo {
+    display: inline-flex;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background: #fff;
 }
