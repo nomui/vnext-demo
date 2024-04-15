@@ -1,32 +1,60 @@
-define([ 'menu-data.js','css!main.css'], function (menuData) {
+define(['menu-data.js', 'css!main.css'], function (menuData) {
   const { items, highlightMap } = menuData()
   let mainMenuRef = null
+  const refs = {}
 
 
-    return {
+  return {
+    component: 'Layout',
+    fit: true,
+
+    sider: {
+      classes: {
+        'vnext-platform-main-sider': true
+      },
+      children: {
         component: 'Layout',
-        fit:true,
-    
-        sider:{
-          classes:{
-            'vnext-platform-main-menu':true
-          },
-            children:{
-              component:'Menu',
+        body: {
+          children: [
+           {
+            children: {
+              component: 'Image',
               ref:(c)=>{
+                refs.mainLogo = c
+              },
+              src: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+              width:70,
+              height:70,
+              alt:'VNext',
+             
+            },
+           },
+            {
+              component: 'Menu',
+              compact: true,
+              ref: (c) => {
                 mainMenuRef = c
               },
-              items:items,
-              itemSelectable:true,
+              items: items,
+              itemSelectable: true,
             }
+          ]
         },
-
-        body: {
+        footer: {
           children: {
-            component: 'Router',
-            defaultPath: 'pro-list',
-          },
-        },
-       
+            component: 'Icon',
+            type: 'times'
+          }
+        }
       }
+    },
+
+    body: {
+      children: {
+        component: 'Router',
+        defaultPath: 'pro-list',
+      },
+    },
+
+  }
 })

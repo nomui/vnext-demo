@@ -2,34 +2,23 @@ define([], function () {
   const menuItems = [
     {
       text: "工作流",
-      icon: "home",
+      icon: "edit",
       url: "#!workflow",
       key: "#!workflow",
     },
     {
       text: "列表",
-      icon: "home",
+      icon: "edit",
       url: "#!pro-list",
       key: "#!pro-list",
     },
     {
       text: "卡片群组",
-      icon: "home",
+      icon: "edit",
       url: "#!pro-group",
       key: "#!pro-group",
     },
-    {
-      text: "可拖拽表单",
-      icon: "home",
-      url: "#!dragable-form",
-      key: "#!dragable-form",
-    },
-    {
-      text: "MenuService",
-      icon: "home",
-      url: "#!menu-service-demo",
-      key: "#!menu-service-demo",
-    },
+
   ];
 
   const bfs = (node, action, filter, copyAction, childrenField) => {
