@@ -22,11 +22,15 @@
 
 .vnext-platform-main-sider {
     width: auto !important;
-    min-width: 80px;
+    min-width: 70px;
     background: #14234A;
     color: #ffffff85;
     text-align: center;
     padding: .5rem 0;
+}
+
+.vnext-platform-main-hd {
+    height: 5rem !important;
 }
 
 .vnext-platform-main-sider-logo {
@@ -38,4 +42,10 @@
     align-items: center;
     border-radius: 6px;
     background: #fff;
+}
+
+.vnext-platform-main-menu .nom-menu-item.s-selected {
+    color: #fff !important;
+    background-color: var(--nom-color-primary) !important;
+
 }

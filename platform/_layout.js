@@ -15,6 +15,9 @@ define(['menu-data.js', 'css!main.css'], function (menuData) {
       children: {
         component: 'Layout',
         header:{
+          classes:{
+            'vnext-platform-main-hd':true
+          },
           children:{
             classes:{
               'vnext-platform-main-sider-logo':true
@@ -34,12 +37,18 @@ define(['menu-data.js', 'css!main.css'], function (menuData) {
         body: {
           children: {
             component: 'Menu',
+            classes:{
+              'vnext-platform-main-menu':true
+            },
             compact: true,
             ref: (c) => {
               mainMenuRef = c
             },
+            itemSelectable: {
+              byClick: true,
+            },
             items: items,
-            itemSelectable: true,
+            keyField: 'key',
           }
         },
         footer: {
