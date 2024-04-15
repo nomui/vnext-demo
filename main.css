@@ -1,24 +1,24 @@
-/*滚动条整体粗细样式*/
-.vnext-platform-main-sider ::-webkit-scrollbar {
-    width: 3px;
+/* Modern browsers with `scrollbar-*` support */
+@supports (scrollbar-width: auto) {
+
+    .vnext-platform-main-sider .nom-layout-body {
+        scrollbar-color: #ffffff15 transparent;
+        scrollbar-width: none;
+        /* &:hover {
+            scrollbar-width: thin;
+        } */
+    }
 }
 
-/*滚动条里面小方块*/
-.vnext-platform-main-sider ::-webkit-scrollbar-thumb {
-    background: var(--nom-color-primary);
-    border-radius: 0;
+/* Legacy browsers with `::-webkit-scrollbar-*` support */
+@supports selector(::-webkit-scrollbar) {
+    .vnext-platform-main-sider ::-webkit-scrollbar-thumb {
+        background: #ffffff15;
+    }
+    .vnext-platform-main-sider ::-webkit-scrollbar {
+        width: 3px;
+    }
 }
-
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.5);
-}
-
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-
 
 .vnext-platform-main-sider {
     width: auto !important;
