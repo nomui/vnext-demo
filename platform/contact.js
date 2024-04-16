@@ -50,7 +50,8 @@ define([], function () {
                                         },
                                       {  
                                        
-                                        children:'微试云(安徽)医疗信息有限公司'
+                                        component:'Ellipsis',
+                                        text:'微试云(安徽)医疗信息有限公司'
                                     }
                                     ]
                                 }
