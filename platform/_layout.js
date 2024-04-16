@@ -1,4 +1,4 @@
-define(['menu-data.js', 'css!main.css'], function (menuData) {
+define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
   const { items, highlightMap } = menuData()
   let mainMenuRef = null
   const refs = {}
@@ -14,31 +14,31 @@ define(['menu-data.js', 'css!main.css'], function (menuData) {
       },
       children: {
         component: 'Layout',
-        header:{
-          classes:{
-            'vnext-platform-main-hd':true
+        header: {
+          classes: {
+            'vnext-platform-main-hd': true
           },
-          children:{
-            classes:{
-              'vnext-platform-main-sider-logo':true
+          children: {
+            classes: {
+              'vnext-platform-main-sider-logo': true
             },
             children: {
               component: 'Image',
-              ref:(c)=>{
+              ref: (c) => {
                 refs.mainLogo = c
               },
               src: '/image/wetrial-logo.png',
-              width:60,
-              alt:'VNext',
-             
+              width: 60,
+              alt: 'VNext',
+
             },
-           },
+          },
         },
         body: {
           children: {
             component: 'Menu',
-            classes:{
-              'vnext-platform-main-menu':true
+            classes: {
+              'vnext-platform-main-menu': true
             },
             compact: true,
             ref: (c) => {
@@ -54,7 +54,10 @@ define(['menu-data.js', 'css!main.css'], function (menuData) {
         footer: {
           children: {
             component: 'Icon',
-            type: 'times'
+            classes:{
+              'vnext-platform-main-sider-toogle':true
+            },
+            type: 'edit'
           }
         }
       }
@@ -62,9 +65,95 @@ define(['menu-data.js', 'css!main.css'], function (menuData) {
 
     body: {
       children: {
-        component: 'Router',
-        defaultPath: 'pro-list',
-      },
+        component: 'Layout',
+        header: {
+          classes: {
+            'vnext-platform-status-bar': true
+          },
+          children: {
+            component: 'Flex',
+            align: 'center',
+            fit: true,
+            gutter:'medium',
+            cols: [
+              {
+                grow: true,
+                children: {
+                  component: 'Flex',
+                  align: 'center',
+                  cols: [
+                    {
+                      classes: {
+                        'vnext-platform-org-title': true
+                      },
+                      children: '微试云（安徽）医疗信息有限公司'
+                    },
+                    {
+                      component: 'Icon',
+                      type: 'down'
+                    }
+                  ]
+                }
+              },
+              {
+                align: 'center',
+                gutter: 'small',
+                cols: [
+                  {
+                    component: 'Avatar',
+                    text: '张三'
+                  },
+                  {
+                    children: '张三'
+                  },
+                  {
+                    children: {
+                      classes: {
+                        'vnext-platform-role-tag': true
+                      },
+                      children: '管理员',
+                    }
+                  },
+                  {
+                    children: {
+                      component: 'Icon',
+                      type: 'down'
+                    }
+                  }
+                ]
+              },
+              {
+                children: {
+                  component: 'Divider',
+                  type: 'vertical',
+                }
+              },
+              {
+                align: 'center',
+                gutter: 'medium',
+                cols: [
+                  {
+                    component:'Icon',
+                    type:'edit'
+                  },
+                  {
+                    component:'Icon',
+                    type:'edit'
+                  },
+                ]
+
+              }
+            ]
+
+          }
+        },
+        body: {
+          children: {
+            component: 'Router',
+            defaultPath: 'pro-list',
+          },
+        }
+      }
     },
 
   }

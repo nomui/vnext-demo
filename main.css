@@ -29,6 +29,14 @@
     padding: .5rem 0;
 }
 
+.vnext-platform-main-sider-toogle {
+    font-size: 2rem;
+}
+
+.vnext-platform-main-sider .nom-layout-footer {
+    padding-top: 1rem;
+}
+
 .vnext-platform-main-hd {
     height: 5rem !important;
 }
@@ -47,5 +55,21 @@
 .vnext-platform-main-menu .nom-menu-item.s-selected {
     color: #fff !important;
     background-color: var(--nom-color-primary) !important;
+}
 
+.vnext-platform-status-bar {
+    padding: 0 1.25rem;
+}
+
+.vnext-platform-org-title {
+    color: #2F3B5A;
+}
+
+.vnext-platform-role-tag {
+    display: block;
+    background: #2C405F10;
+    color: #2C405F;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 200px;
 }
