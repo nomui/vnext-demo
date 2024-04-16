@@ -1,8 +1,22 @@
 define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
   const { items, highlightMap } = menuData()
-  let mainMenuRef = null
   const refs = {}
 
+  const toogleMainSider = ()=>{
+    refs.mainMenu.update({
+      compact:!refs.mainMenu.props.compact
+    })
+
+    if (document.querySelector('.vnext-platform-main-sider-toogle').classList.contains('mini')) {
+      document.querySelector('.vnext-platform-main-sider-toogle').classList.remove('mini')
+    }
+    else {
+      document.querySelector('.vnext-platform-main-sider-toogle').classList.add('mini')
+    }
+    
+
+    
+  }
 
   return {
     component: 'Layout',
@@ -42,7 +56,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
             },
             compact: true,
             ref: (c) => {
-              mainMenuRef = c
+              refs.mainMenu = c
             },
             itemSelectable: {
               byClick: true,
@@ -56,6 +70,9 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
             component: 'Icon',
             classes:{
               'vnext-platform-main-sider-toogle':true
+            },
+            onClick:()=>{
+              toogleMainSider()
             },
             type: 'edit'
           }

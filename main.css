@@ -25,12 +25,18 @@
     min-width: 70px;
     background: #14234A;
     color: #ffffff85;
-    text-align: center;
+    text-align: left;
     padding: 1rem 0 .5rem 0;
 }
 
 .vnext-platform-main-sider-toogle {
     font-size: 2rem;
+    transform: translateX(20px);
+}
+
+.vnext-platform-main-sider-toogle.mini {
+    font-size: 1rem;
+    transform: translate(30px);
 }
 
 .vnext-platform-main-sider .nom-layout-footer {
@@ -42,6 +48,7 @@
 }
 
 .vnext-platform-main-sider-logo {
+    transform: translateX(10px);
     display: inline-flex;
     width: 50px;
     height: 50px;
@@ -50,6 +57,12 @@
     align-items: center;
     border-radius: 6px;
     background: #fff;
+}
+
+.vnext-platform-main-menu:not(.compact) .nom-menu-item {
+    margin:0 .5rem;
+    border-radius: 4px;
+
 }
 
 .vnext-platform-main-menu .nom-menu-item.s-selected {
@@ -78,4 +91,57 @@
 .vnext-platform-workspace {
     background: #F7F8FB;
     box-shadow:  inset 0 4px 8px -5px rgba(0, 0, 0, 0.15);
+}
+
+.vnext-platform-dashboard-tabs {
+    height: 100%;
+    border: none !important;
+    box-shadow:  0px 0px 15px -4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+.vnext-platform-dashboard-tabs .nom-tab-list .nom-tab-item {
+    padding: .75rem 1rem !important;
+    border:none !important;
+    border-radius: 8px 8px 0 0 !important;
+    box-shadow: 4px 0px 5px -5px rgba(0, 0, 0, 0.15);
+}
+
+.vnext-platform-dashboard-tabs .nom-tab-list .s-selected {
+
+}
+
+
+.vnext-platform-dashboard-tabs .nom-tab-list > .nom-list-content {
+    border:none !important;
+    background: #F2F3F5 !important;
+}
+
+.vnext-workspace-conainer >.nom-layout-body {
+    padding: 1rem;
+}
+
+.vnext-platform-contact {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow:  0px 0px 15px -4px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+
+.vnext-platform-contact-sider {
+    width: 350px !important;
+    background: #F5F6F7;
+    border:none !important;
+}
+
+.vnext-platform-contact-title {
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+.vnext-platform-contact-subtitle {
+    padding: 0 1rem;
+    font-size: 1.15rem;
+    font-weight: bold;
 }
