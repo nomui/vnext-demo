@@ -148,6 +148,9 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
           }
         },
         body: {
+          classes:{
+            'vnext-platform-workspace':true
+          },
           children: {
             component: 'Router',
             defaultPath: 'pro-list',
