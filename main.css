@@ -59,10 +59,9 @@
     background: #fff;
 }
 
-.vnext-platform-main-menu:not(.compact) .nom-menu-item {
+.vnext-platform-main-menu:not(.nom-menu-compact) .nom-menu-item {
     margin:0 .5rem;
     border-radius: 4px;
-
 }
 
 .vnext-platform-main-menu .nom-menu-item.s-selected {
