@@ -27,8 +27,8 @@ define([], function () {
     {
       text: "工作台",
       icon: "edit",
-      url: "#!dashboard",
-      key: "#!dashboard",
+      url: "#!application",
+      key: "#!application",
     },
     {
       text: "联系人",
