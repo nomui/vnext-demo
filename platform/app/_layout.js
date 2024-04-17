@@ -1,8 +1,29 @@
-define([], function () {
-    const { items, highlightMap } = mainMenuData()
+define(['css!app.css'], function () {
+   
     const refs = {}
-debugger
-    
+
+    const items =[{
+      text: "概览",
+      icon: "edit",
+      url: "#!overview",
+      key: "#!overview",
+    },
+    {
+      text: "任务",
+      icon: "edit",
+      url: "#!tasks",
+      key: "#!tasks",
+    },
+    {
+      text: "发现",
+      icon: "edit",
+      url: "#!sae",
+      key: "#!sae",
+    },]
+
+    const hidePlatformMenu = ()=>{
+      document.querySelector('body').classList.add('hide-platform-navi')
+    }
   
     const toogleMainSider = ()=>{
       if (document.querySelector('.vnext-platform-main-menu').classList.contains('nom-menu-compact')) {
@@ -25,7 +46,14 @@ debugger
     }
   
     return ({ route, context, router, app }) => {
+ 
       return {
+        onRendered: () => {
+          hidePlatformMenu()
+         }, // 视图组件渲染完成后调用
+        onHashChange: ({ route }) => { }, // 页面 url 的 hash 部分更改时调用
+        onSubpathChange: ({ route }) => { }, // 该页面所渲染的路由器所在的路径的子路径变更时调用
+        onQueryChange: ({ route }) => { }, // 页面 url 的 hash 部分的查询字符串部分更改时调用
           title: '工作台', 
           view: {
             component:'Layout',
@@ -52,18 +80,7 @@ debugger
                     keyField: 'key',
                   }
                 },
-                footer: {
-                  children: {
-                    component: 'Icon',
-                    classes:{
-                      'vnext-platform-main-sider-toogle':true
-                    },
-                    onClick:()=>{
-                      toogleMainSider()
-                    },
-                    type: 'edit'
-                  }
-                }
+                
               }
             },
         
@@ -77,7 +94,7 @@ debugger
                   },
                   children:{
                     component:'Menu',
-                    items:renderSubMenu()
+                    // items:renderSubMenu()
                   }
                 },
                 body: {
@@ -86,7 +103,7 @@ debugger
                   },
                   children: {
                     component: 'Router',
-                    defaultPath: '!drug-manage',
+                    defaultPath: 'drug-manage/home',
                   },
                 }
               }

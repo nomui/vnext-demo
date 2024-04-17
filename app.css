@@ -1,0 +1,31 @@
+/* Modern browsers with `scrollbar-*` support */
+@supports (scrollbar-width: auto) {
+
+    .vnext-app-main-sider .nom-layout-body {
+        scrollbar-color: #ffffff15 transparent;
+        scrollbar-width: none;
+        /* &:hover {
+            scrollbar-width: thin;
+        } */
+    }
+}
+
+/* Legacy browsers with `::-webkit-scrollbar-*` support */
+@supports selector(::-webkit-scrollbar) {
+    .vnext-app-main-sider ::-webkit-scrollbar-thumb {
+        background: #ffffff15;
+    }
+    .vnext-app-main-sider ::-webkit-scrollbar {
+        width: 3px;
+    }
+}
+
+
+
+.vnext-app-main-sider {
+    width: 70px !important;
+}
+
+.vnext-app-sub-sider {
+    width: 180px !important;
+}

@@ -20,6 +20,11 @@
     }
 }
 
+.hide-platform-navi .vnext-platform-main-sider {
+    display: none;
+}
+
+
 .vnext-platform-main-sider {
     width: auto !important;
     min-width: 70px;
@@ -175,3 +180,4 @@
     padding-top: .25rem;
     color: #aaa;
 }
+

@@ -6,7 +6,7 @@ define([], function () {
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
@@ -105,7 +105,7 @@ define([], function () {
                             'vnext-application-item': true
                         },
                         onClick: () => {
-    
+                            nomapp.currentRoute.push(itemData.url)
                         },
                         cols: [
                             {
