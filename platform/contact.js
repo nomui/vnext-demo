@@ -3,7 +3,31 @@ define([], function () {
     const refs = {}
   
   
-  
+    const renderContactTypes = ({data})=>{
+        return {
+            component:'Tree',
+            classes:{
+                'vnext-platform-contact-type-tree':true
+            },
+            expandable:false,
+            nodeDefaults: {
+                _config: (inst) => {
+                    
+                    const {data}=inst.props
+                  inst.setProps({
+                
+                    data: {
+                      icon: {
+                        type: inst.level>0?'minus':data.icon,
+                      },
+                    },
+                  })
+                },
+              },
+              data:data
+        }
+
+    }
   
     return ({ route, context, router, app }) => {
         return {
@@ -57,7 +81,23 @@ define([], function () {
                                 }
                             },
                             body:{
-                                children:'333'
+                                children: renderContactTypes({
+                                    data:[
+                                        {
+                                            text: '组织架构',
+                                            icon:'edit',
+                                            children: [
+                                                { text: '产品' }, 
+                                                { text: '研发' }
+                                            ],
+                                          },
+                                          { text: '外部联系人' , icon:'edit',}, 
+                                          { text: '新的联系人' , icon:'edit',}, 
+                                          { text: '星标联系人', icon:'edit', }, 
+                                          { text: '邮件联系人' , icon:'edit',}, 
+                                          { text: '我的群组', icon:'edit', }, 
+                                    ]
+                                })
                             }
                         }
                       },

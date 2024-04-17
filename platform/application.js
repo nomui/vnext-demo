@@ -91,7 +91,7 @@ define([], function () {
     const renderAppList = (data) => {
         return {
             component: 'List',
-            gutter: 'md',
+            // gutter: 'sm',
             data: data,
             itemRender: ({ list, item, itemData }) => {
                 return {
