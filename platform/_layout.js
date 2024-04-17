@@ -89,7 +89,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
             component: 'Flex',
             align: 'center',
             fit: true,
-            gutter:'medium',
+            gap:'medium',
             cols: [
               {
                 grow: true,
@@ -112,7 +112,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
               },
               {
                 align: 'center',
-                gutter: 'small',
+                gap: 'small',
                 cols: [
                   {
                     component: 'Avatar',
@@ -145,7 +145,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
               },
               {
                 align: 'center',
-                gutter: 'medium',
+                gap: 'medium',
                 cols: [
                   {
                     component:'Icon',

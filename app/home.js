@@ -19,9 +19,7 @@ define([], function () {
                     'vnext-workspace-conainer': true
                 },
                 body: {
-                    children: {
-                      component:'Flex'
-                    }
+                    children: 'aaa'
                 },
             },
         }

@@ -1,7 +1,7 @@
 /* Modern browsers with `scrollbar-*` support */
 @supports (scrollbar-width: auto) {
 
-    .vnext-platform-main-sider .nom-layout-body {
+    .vnext-app-main-sider .nom-layout-body {
         scrollbar-color: #ffffff15 transparent;
         scrollbar-width: none;
         /* &:hover {
@@ -12,32 +12,49 @@
 
 /* Legacy browsers with `::-webkit-scrollbar-*` support */
 @supports selector(::-webkit-scrollbar) {
-    .vnext-platform-main-sider ::-webkit-scrollbar-thumb {
+    .vnext-app-main-sider ::-webkit-scrollbar-thumb {
         background: #ffffff15;
     }
-    .vnext-platform-main-sider ::-webkit-scrollbar {
+    .vnext-app-main-sider ::-webkit-scrollbar {
         width: 3px;
     }
 }
 
-.vnext-platform-main-sider {
+
+.vnext-app-status-bar {
+    background: #0A47ED;
+    color: #fff;
+    padding: 0 1.5rem;
+}
+
+.vnext-app-sub-sider {
+    width: 180px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vnext-app-main-sider {
     width: auto !important;
     min-width: 70px;
-    background: #14234A;
-    color: #ffffff85;
-    text-align: left;
-    padding: 1rem 0 .5rem 0;
+    background: #fff;
+    color: #333;
+    text-align: center;
 }
 
-.vnext-platform-main-sider-toogle {
-    font-size: 1.75rem;
-    transform: translateX(22px);
-}
-
-.vnext-platform-main-sider-toogle.mini {
-    font-size: 1rem;
-    transform: translate(30px);
-}
 
 .vnext-platform-main-sider .nom-layout-footer {
     padding-top: 1rem;
@@ -47,131 +64,18 @@
     height: 5rem !important;
 }
 
-.vnext-platform-main-sider-logo {
-    transform: translateX(10px);
-    display: inline-flex;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    background: #fff;
-}
 
-.vnext-platform-main-menu.nom-menu-compact .nom-icon {
+
+.vnext-app-main-menu.nom-menu-compact .nom-icon {
     font-size: 1.75rem !important;
 }
 
-.vnext-platform-main-menu:not(.nom-menu-compact) .nom-menu-item {
+.vnext-app-main-menu:not(.nom-menu-compact) .nom-menu-item {
     margin:0 .5rem;
     border-radius: 4px;
 }
 
-.vnext-platform-main-menu .nom-menu-item.s-selected {
-    color: #fff !important;
-    background-color: var(--nom-color-primary) !important;
+.vnext-app-main-menu .nom-menu-item.s-selected {
+    background-color: rgba(var(--nom-color-primary),.2) !important;
 }
 
-.vnext-platform-status-bar {
-    padding: 0 1.25rem;
-    border-bottom: none !important;
-}
-
-.vnext-platform-org-title {
-    color: #2F3B5A;
-}
-
-.vnext-platform-role-tag {
-    display: block;
-    background: #2C405F10;
-    color: #2C405F;
-    font-size: 12px;
-    padding: 2px 8px;
-    border-radius: 200px;
-}
-
-.vnext-platform-workspace {
-    background: #F7F8FB;
-    box-shadow:  inset 0 4px 8px -5px rgba(0, 0, 0, 0.15);
-}
-
-.vnext-platform-dashboard-tabs {
-    height: 100%;
-    border: none !important;
-    box-shadow:  0px 0px 15px -4px rgba(0, 0, 0, 0.15);
-    border-radius: 8px !important;
-    overflow: hidden;
-}
-
-.vnext-platform-dashboard-tabs .nom-tab-list .nom-tab-item {
-    padding: .75rem 1rem !important;
-    border:none !important;
-    border-radius: 8px 8px 0 0 !important;
-    box-shadow: 4px 0px 5px -5px rgba(0, 0, 0, 0.15);
-}
-
-.vnext-platform-dashboard-tabs .nom-tab-list .s-selected {
-
-}
-
-
-.vnext-platform-dashboard-tabs .nom-tab-list > .nom-list-content {
-    border:none !important;
-    background: #F2F3F5 !important;
-}
-
-.vnext-workspace-conainer >.nom-layout-body {
-    padding: 1rem;
-}
-
-.vnext-platform-contact {
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow:  0px 0px 15px -4px rgba(0, 0, 0, 0.15);
-    background: #fff;
-}
-
-.vnext-platform-contact-sider {
-    width: 350px !important;
-    background: #F5F6F7;
-    border:none !important;
-}
-
-.vnext-platform-contact-title {
-    padding: 0 1rem;
-    font-weight: bold;
-}
-
-.vnext-platform-contact-subtitle {
-    padding: 0 1rem;
-    font-size: 1.15rem;
-    font-weight: bold;
-}
-
-.vnext-application-item {
-    width:160px;
-    padding: 1.25rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 2px -1px rgba(0, 0, 0, 0.25), 0 5px 15px -5px rgba(0, 0, 0, 0.15);
-}
-
-.vnext-platform-contact-type-tree .nom-tree-node-expandable-indicator {
-    visibility: hidden;
-}
-
-.vnext-platform-contact-type-tree .nom-tree-node-content {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-
-}
-
-.vnext-contact-list-item h5 {
-    font-size: 1.2rem;
-    font-weight: normal;
-}
-
-.vnext-contact-list-item .muted {
-    padding-top: .25rem;
-    color: #aaa;
-}
