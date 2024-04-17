@@ -9,7 +9,9 @@ define([], function () {
             classes:{
                 'vnext-platform-contact-type-tree':true
             },
-            expandable:false,
+            expandable:{
+                byClick:false,
+            },
             nodeDefaults: {
                 _config: (inst) => {
                     
@@ -25,6 +27,79 @@ define([], function () {
                 },
               },
               data:data
+        }
+
+    }
+
+    const renderContactList = ({data})=>{
+        return {
+            component:'List',
+            cols:1,
+            data:data,
+            gutter:'md',
+            itemRender:({itemData})=>{
+                return {
+                    component:'Flex',
+                    align:'center',
+                    classes:{
+                        'vnext-contact-list-item':true
+                    },
+                    gutter:'small',
+                    cols:[
+                        {
+                            children:{
+                                component:'Avatar',
+                                src:itemData.avatar,
+                                text:itemData.text
+                            }
+                        },
+                        {
+                            rows:[
+                                {
+                                    align:'center',
+                                    gutter:'medium',
+                                    cols:[
+                                        {
+                                            tag:'h5',
+                                    children:itemData.text
+                                        },
+                                        itemData.tag && {
+                                            component:'List',
+                                            gutter:'sm',
+                                            items:itemData.tag.map(n=>{
+                                                return {
+                                                    component:'Tag',
+                                                    color: 'blue',
+                                                    size:'xs',
+                                                    text:n.text
+                                                }
+                                            })
+                                        }
+                                    ]
+                                },
+                                {
+                                    align:'center',
+                                    classes:{
+                                        'muted':true
+                                    },
+                                    cols:[
+                                        {
+                                            children:itemData.role
+                                        },
+                                        {
+                                            component:'Divider',
+                                            type: 'vertical',
+                                        },
+                                        {
+                                            children:itemData.location
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
         }
 
     }
@@ -120,7 +195,47 @@ define([], function () {
                                 }
                             },
                             body:{
-                                children:'333'
+                                styles:{
+                                    padding:2,
+                                },
+                                children:renderContactList({
+                                    data:[
+                                        {
+                                            text:'李玲玲',
+                                            role:'开发中心副总监',
+                                            location:'安徽',
+                                            tag:[
+                                                {
+                                                    text:'管理员'
+                                                },
+                                                {
+                                                    text:'负责人'
+                                                }
+                                            ],
+                                        },
+                                        {
+                                            text:'郭宁霞',
+                                            role:'产品副总监',
+                                            location:'长沙',
+                                            tag:[
+                
+                                                {
+                                                    text:'负责人'
+                                                }
+                                            ],
+                                        },
+                                        {
+                                            text:'夏月',
+                                            role:'UI设计师',
+                                            location:'长沙',
+                                        },
+                                        {
+                                            text:'王玲玲',
+                                            role:'产品经理',
+                                            location:'安徽',
+                                        },
+                                    ]
+                                })
                             }
                         }
                       }
