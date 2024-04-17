@@ -1,4 +1,4 @@
-define(['menu-data.js', 'css!theme.css', 'css!app/app.css'], function (mainMenuData) {
+define(['menu-data.js', 'css!../theme.css', 'css!app.css'], function (mainMenuData) {
     const { items, highlightMap } = mainMenuData()
     const refs = {}
 
@@ -168,7 +168,7 @@ define(['menu-data.js', 'css!theme.css', 'css!app/app.css'], function (mainMenuD
               },
               children: {
                 component: 'Router',
-                defaultPath: 'home',
+                defaultPath: '../drug-manage/home',
               },
             }
           }

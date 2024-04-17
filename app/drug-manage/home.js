@@ -19,7 +19,7 @@ define([], function () {
                     'vnext-workspace-conainer': true
                 },
                 body: {
-                    children: 'aaa'
+                    children: '药物管理'
                 },
             },
         }
