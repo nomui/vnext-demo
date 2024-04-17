@@ -95,6 +95,12 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
                   gap:'medium',
                   cols: [
                     {
+                      children:{
+                        component:'Icon',
+                        type:'drag'
+                      }
+                    },
+                    {
                       grow: true,
                       children: {
                         component: 'Flex',
