@@ -17,6 +17,7 @@
       paths: {
         "dragula":'libs/dragula/dragula.min',
         "menu-service":'/libs/menu-service',
+        'wetrial-echart': 'components/wetrial-chart/echarts', // Echarts图表
       },
       shim: {
        
