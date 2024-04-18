@@ -4,18 +4,20 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
   const refs = {}
 
   const initEvents = ()=>{
+    mainNaviMouseEvent()
+  }
+
+  const mainNaviMouseEvent = ()=>{
     document.querySelector('.vnext-platform-main-sider').addEventListener('mouseenter', function() {
       stillShowNavi = true
-      console.log('a')
     })
     document.querySelector('.vnext-platform-main-sider').addEventListener('mouseleave', function() {
       stillShowNavi = false
-      console.log('b')
       delayHideNavi(1.5)
     })
   }
 
-  const toogleMainSider = () => {
+  const handleMainNaviSize = () => {
     if (document.querySelector('.vnext-platform-main-menu').classList.contains('nom-menu-compact')) {
       document.querySelector('.vnext-platform-main-menu').classList.remove('nom-menu-compact')
       document.querySelector('body').classList.add('large-navi')
@@ -27,7 +29,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
   }
 
 
-  const autoSetPlatformMenu = () => {
+  const showOrHidePlatformNavi = () => {
     if (nomapp.currentRoute.hash.includes('!app!')) {
       document.querySelector('body').classList.remove('show-platform-navi')
     }
@@ -44,7 +46,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
     },sec*1000)
   }
 
-  const toogleMainSiderVisible = ()=>{
+  const handleNaviVisibility = ()=>{
     if ( document.querySelector('body').classList.contains('show-platform-navi')) {
       document.querySelector('body').classList.remove('show-platform-navi')
       delayHideNavi()
@@ -57,11 +59,11 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
   return ({ route, context, router, app }) => {
     return {
       onRendered: () => {
-        autoSetPlatformMenu()
+        showOrHidePlatformNavi()
         initEvents()
       }, // 视图组件渲染完成后调用
       onHashChange: ({ route }) => { 
-        autoSetPlatformMenu()
+        showOrHidePlatformNavi()
       }, // 页面 url 的 hash 部分更改时调用
       onSubpathChange: ({ route }) => { }, // 该页面所渲染的路由器所在的路径的子路径变更时调用
       onQueryChange: ({ route }) => { }, // 页面 url 的 hash 部分的查询字符串部分更改时调用
@@ -120,7 +122,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
                   'vnext-platform-main-sider-toogle': true
                 },
                 onClick: () => {
-                  toogleMainSider()
+                  handleMainNaviSize()
                 },
                 type: 'edit'
               }
@@ -149,7 +151,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
                       component: 'Icon',
                       type: 'drag',
                       onClick:()=>{
-                        toogleMainSiderVisible()
+                        handleNaviVisibility()
                       }
                     }
                   },

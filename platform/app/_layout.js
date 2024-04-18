@@ -21,18 +21,7 @@ define(['css!app.css'], function () {
       key: "#!sae",
     },]
 
-  
-    const tooglePlatformNavi = ()=>{
-      if (document.querySelector('body').classList.contains('nom-menu-compact')) {
-        document.querySelector('.vnext-platform-main-menu').classList.remove('nom-menu-compact')
-        // document.querySelector('.vnext-platform-main-sider-toogle').classList.add('mini')
-      }
-      else {
-        document.querySelector('.vnext-platform-main-menu').classList.add('nom-menu-compact')
-        // document.querySelector('.vnext-platform-main-sider-toogle').classList.remove('mini')
-      }
-      
-    }
+
 
     const renderMainMenu=()=>{
 
