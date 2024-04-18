@@ -21,12 +21,9 @@ define(['css!app.css'], function () {
       key: "#!sae",
     },]
 
-    const hidePlatformMenu = ()=>{
-      document.querySelector('body').classList.add('hide-platform-navi')
-    }
   
-    const toogleMainSider = ()=>{
-      if (document.querySelector('.vnext-platform-main-menu').classList.contains('nom-menu-compact')) {
+    const tooglePlatformNavi = ()=>{
+      if (document.querySelector('body').classList.contains('nom-menu-compact')) {
         document.querySelector('.vnext-platform-main-menu').classList.remove('nom-menu-compact')
         // document.querySelector('.vnext-platform-main-sider-toogle').classList.add('mini')
       }
@@ -49,7 +46,7 @@ define(['css!app.css'], function () {
  
       return {
         onRendered: () => {
-          hidePlatformMenu()
+      
          }, // 视图组件渲染完成后调用
         onHashChange: ({ route }) => { }, // 页面 url 的 hash 部分更改时调用
         onSubpathChange: ({ route }) => { }, // 该页面所渲染的路由器所在的路径的子路径变更时调用

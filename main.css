@@ -20,9 +20,6 @@
     }
 }
 
-.hide-platform-navi .vnext-platform-main-sider {
-    display: none;
-}
 
 
 .vnext-platform-main-sider {
@@ -32,6 +29,24 @@
     color: #ffffff85;
     text-align: left;
     padding: 1rem 0 .5rem 0;
+    position: fixed;
+    top:0;
+    left: -70px;
+    bottom: 0;
+    transition: all .5s;
+}
+
+.vnext-platform-container {
+    margin-left: 0px;
+    transition: all .5s;
+}
+
+.show-platform-navi .vnext-platform-main-sider {
+   left: 0px;
+}
+
+.show-platform-navi .vnext-platform-container {
+    margin-left: 70px;
 }
 
 .vnext-platform-main-sider-toogle {
