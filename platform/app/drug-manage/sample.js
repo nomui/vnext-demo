@@ -8,7 +8,7 @@ define([], function () {
     return function () {
         return {
             component:'Flex',
-            gap:'small',
+            gutter:'medium',
             rows:[
                 {
                     component:'Panel',
@@ -23,7 +23,7 @@ define([], function () {
                         tools: [ 
                             {
                             component:'Select',
-                            controlWidth:100,
+                            controlWidth:70,
                             value:1,
                             allowClear:false,
                             options:[
