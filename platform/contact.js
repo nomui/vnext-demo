@@ -196,46 +196,63 @@ define([], function () {
                             },
                             body:{
                                 styles:{
-                                    padding:2,
+                                    padding:1,
                                 },
-                                children:renderContactList({
-                                    data:[
-                                        {
-                                            text:'李玲玲',
-                                            role:'开发中心副总监',
-                                            location:'安徽',
-                                            tag:[
-                                                {
-                                                    text:'管理员'
-                                                },
-                                                {
-                                                    text:'负责人'
-                                                }
+                                children:[
+                                    {
+                                        children: {
+                                            component: 'Breadcrumb',
+                                            items: [
+                                              { text: '微试云(安徽)医疗信息有限公司'},
+    
+                                              { text: '产品中心' },
                                             ],
-                                        },
-                                        {
-                                            text:'郭宁霞',
-                                            role:'产品副总监',
-                                            location:'长沙',
-                                            tag:[
-                
-                                                {
-                                                    text:'负责人'
-                                                }
-                                            ],
-                                        },
-                                        {
-                                            text:'夏月',
-                                            role:'UI设计师',
-                                            location:'长沙',
-                                        },
-                                        {
-                                            text:'王玲玲',
-                                            role:'产品经理',
-                                            location:'安徽',
-                                        },
-                                    ]
-                                })
+                                          }
+                                    },
+                                 {
+                                    styles:{
+                                        padding:1
+                                    },
+                                    children:   renderContactList({
+                                        data:[
+                                            {
+                                                text:'李玲玲',
+                                                role:'开发中心副总监',
+                                                location:'安徽',
+                                                tag:[
+                                                    {
+                                                        text:'管理员'
+                                                    },
+                                                    {
+                                                        text:'负责人'
+                                                    }
+                                                ],
+                                            },
+                                            {
+                                                text:'郭宁霞',
+                                                role:'产品副总监',
+                                                location:'长沙',
+                                                tag:[
+                    
+                                                    {
+                                                        text:'负责人'
+                                                    }
+                                                ],
+                                            },
+                                            {
+                                                text:'夏月',
+                                                role:'UI设计师',
+                                                location:'长沙',
+                                            },
+                                            {
+                                                text:'王玲玲',
+                                                role:'产品经理',
+                                                location:'安徽',
+                                            },
+                                        ]
+                                    })
+                                 }
+                            ]
                             }
                         }
                       }
