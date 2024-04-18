@@ -1,4 +1,5 @@
-define([], function () {
+define(['platform/app/drug-manage/sample.js'], function (Sample) {
+    const sampleData = Sample()
 
     const refs = {}
   
@@ -19,7 +20,7 @@ define([], function () {
                     'vnext-workspace-conainer': true
                 },
                 body: {
-                    children: '药物管理'
+                    children: sampleData
                 },
             },
         }
