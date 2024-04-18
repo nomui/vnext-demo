@@ -21,8 +21,8 @@ define([], function () {
     {
       text: "项目",
       icon: "edit",
-      url: "#!project",
-      key: "#!project",
+      url: "#!projects",
+      key: "#!projects",
     },
     {
       text: "工作台",

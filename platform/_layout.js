@@ -91,7 +91,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
                   ref: (c) => {
                     refs.mainLogo = c
                   },
-                  src: '/image/wetrial-logo.png',
+                  src: '../image/wetrial-logo.png',
                   width: 60,
                   alt: 'VNext',
 
