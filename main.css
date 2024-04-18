@@ -49,6 +49,11 @@
     margin-left: 70px;
 }
 
+.show-platform-navi.large-navi .vnext-platform-container {
+    margin-left: 110px;
+}
+
+
 .vnext-platform-main-sider-toogle {
     font-size: 1.75rem;
     transform: translateX(22px);
@@ -81,6 +86,10 @@
 
 .vnext-platform-main-menu.nom-menu-compact .nom-icon {
     font-size: 1.75rem !important;
+}
+
+.vnext-platform-main-menu:not(.nom-menu-compact) {
+    width: 110px !important;
 }
 
 .vnext-platform-main-menu:not(.nom-menu-compact) .nom-menu-item {

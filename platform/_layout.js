@@ -18,11 +18,11 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
   const toogleMainSider = () => {
     if (document.querySelector('.vnext-platform-main-menu').classList.contains('nom-menu-compact')) {
       document.querySelector('.vnext-platform-main-menu').classList.remove('nom-menu-compact')
-      // document.querySelector('.vnext-platform-main-sider-toogle').classList.add('mini')
+      document.querySelector('body').classList.add('large-navi')
     }
     else {
       document.querySelector('.vnext-platform-main-menu').classList.add('nom-menu-compact')
-      // document.querySelector('.vnext-platform-main-sider-toogle').classList.remove('mini')
+      document.querySelector('body').classList.remove('large-navi')
     }
   }
 
@@ -38,7 +38,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
 
   const delayHideNavi = (sec=5)=>{
     setTimeout(()=>{
-      if (!stillShowNavi) {
+      if (!stillShowNavi && nomapp.currentRoute.hash.includes('!app!')) {
         document.querySelector('body').classList.remove('show-platform-navi')
       }
     },sec*1000)
