@@ -186,7 +186,7 @@ define(['wetrial-echart'], function (Echarts) {
                         children: {
                             component: Echarts,
                             size: {
-                              width: 'calc(100vw - 160px)',
+                              width: nomapp.currentRoute.hash.includes('#!app!')?'calc(100vw - 320px)':'calc(100vw - 160px)',
                               height: 400,
                             },
                             chartProps: {
@@ -312,7 +312,7 @@ define(['wetrial-echart'], function (Echarts) {
                         children: {
                             component: Echarts,
                             size: {
-                              width: 'calc(100vw - 160px)',
+                                width: nomapp.currentRoute.hash.includes('#!app!')?'calc(100vw - 320px)':'calc(100vw - 160px)',
                               height: 400,
                             },
                             chartProps: {
