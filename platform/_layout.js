@@ -28,9 +28,13 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
     }
   }
 
+  const isAppPage = ()=>{
+    return nomapp.currentRoute.hash.includes('#!app!')
+  }
+
 
   const showOrHidePlatformNavi = () => {
-    if (nomapp.currentRoute.hash.includes('!app!')) {
+    if (isAppPage()) {
       document.querySelector('body').classList.remove('show-platform-navi')
     }
     else {
@@ -40,7 +44,7 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
 
   const delayHideNavi = (sec=5)=>{
     setTimeout(()=>{
-      if (!stillShowNavi && nomapp.currentRoute.hash.includes('!app!')) {
+      if (!stillShowNavi && isAppPage()) {
         document.querySelector('body').classList.remove('show-platform-navi')
       }
     },sec*1000)
