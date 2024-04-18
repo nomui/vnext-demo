@@ -215,3 +215,38 @@
 .vnext-layout-panel >.nom-layout-footer {
     min-height: 3rem;
 }
+
+.vnext-default-panel {
+    border:none !important;
+  
+    box-shadow: 0 0 2px -1px rgba(0, 0, 0, 0.25), 0 5px 15px -5px rgba(0, 0, 0, 0.15);
+}
+
+.vnext-default-panel .nom-panel-header {
+    border:none !important;
+    background: #fff !important;
+    border-radius: 4px 4px 0 0;
+    justify-content: space-between;
+}
+
+.vnext-default-panel .nom-panel-header .nom-caption-title {
+    font-size: 16px;
+}
+
+
+.vnext-default-panel .nom-panel-header .nom-caption {
+    position: relative;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.vnext-default-panel .nom-panel-header .nom-caption:after {
+    position: absolute;
+    left:0;
+    top: 4px;
+    bottom: 2px;
+    content: '';
+    display: inline-block;
+    width:3px;
+    background-color: var(--nom-color-primary)
+}

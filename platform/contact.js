@@ -204,7 +204,6 @@ define([], function () {
                                             component: 'Breadcrumb',
                                             items: [
                                               { text: '微试云(安徽)医疗信息有限公司'},
-    
                                               { text: '产品中心' },
                                             ],
                                           }
