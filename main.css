@@ -196,8 +196,14 @@
 .vnext-platform-contact-type-tree .nom-tree-node-content {
     padding-top: .75rem;
     padding-bottom: .75rem;
-
 }
+
+.vnext-platform-contact-type-tree .nom-tree-node-content.s-selected,.vnext-platform-contact-type-tree .nom-tree-node-content.s-selected:hover {
+    color: var(--nom-color-primary);
+    background-color: #D4DFF6;
+}
+
+
 
 .vnext-contact-list-item h5 {
     font-size: 1rem;
@@ -260,3 +266,4 @@
     padding-left: .5rem;
     padding-right: .5rem;
 }
+

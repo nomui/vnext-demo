@@ -12,6 +12,11 @@ define([], function () {
             expandable:{
                 byClick:false,
             },
+            nodeSelectable: {
+                onNodeSelect: ({ node }) => {
+                  selectedNode = node
+                },
+              },
             nodeDefaults: {
                 _config: (inst) => {
                     
