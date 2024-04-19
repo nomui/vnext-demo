@@ -24,19 +24,19 @@ define(['css!app.css'], function () {
     const subMenuData = [{
       text: "里程碑",
       icon: "edit",
-      url: "#!overview",
+      // url: "#!overview",
       key: "#!overview",
     },
     {
       text: "入组",
       icon: "edit",
-      url: "#!tasks",
+      // url: "#!tasks",
       key: "#!tasks",
     },
     {
       text: "质量",
       icon: "edit",
-      url: "#!sae",
+      // url: "#!sae",
       key: "#!sae",
       
     },
@@ -57,19 +57,19 @@ define(['css!app.css'], function () {
     {
       text: "财务",
       icon: "edit",
-      url: "#!tasks",
+      // url: "#!tasks",
       key: "#!tasks",
     },
     {
       text: "团队",
       icon: "edit",
-      url: "#!sae",
+      // url: "#!sae",
       key: "#!sae",
     },
     {
       text: "设置",
       icon: "edit",
-      url: "#!sae",
+      // url: "#!sae",
       key: "#!sae",
     },]
 

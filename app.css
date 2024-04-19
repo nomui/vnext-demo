@@ -42,3 +42,23 @@
     padding-top: 12px !important;
     padding-bottom: 12px !important;
 }
+
+.vnext-app-sub-menu >li >.nom-menu-item .nom-menu-item-title {
+    color: #031B4F;
+}
+
+.vnext-app-sub-menu >li >.nom-menu-item .nom-menu-item-icon {
+    color: #767676;
+}
+
+.vnext-app-sub-menu >li .nom-menu-item.s-selected {
+    background-color: #AFBAC820;
+}
+
+.vnext-app-sub-menu >li .nom-menu-item.s-selected >.nom-menu-item-title {
+    color: #597EF7;
+}
+
+.vnext-app-sub-menu >li .nom-menu-item.s-selected >.nom-menu-item-icon {
+    color: #597EF7;
+}
