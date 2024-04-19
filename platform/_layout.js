@@ -152,10 +152,16 @@ define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
                 cols: [
                   {
                     children: {
-                      component: 'Icon',
-                      type: 'drag',
+                      classes:{
+                        'vnext-main-bar-trigger':true
+                      },
                       onClick:()=>{
                         handleNaviVisibility()
+                      },
+                      children:{
+                        component: 'Icon',
+                        type: 'drag',
+                        
                       }
                     }
                   },

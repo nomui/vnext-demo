@@ -250,3 +250,9 @@
     width:3px;
     background-color: var(--nom-color-primary)
 }
+
+.vnext-main-bar-trigger {
+    cursor: pointer;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
