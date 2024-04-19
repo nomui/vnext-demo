@@ -18,9 +18,13 @@
         "dragula":'libs/dragula/dragula.min',
         "menu-service":'/libs/menu-service',
         'wetrial-echart': 'components/wetrial-chart/echarts', // Echarts图表
+        FullCalendar: '/libs/fullcalendar/main', // 日历
       },
       shim: {
-       
+        FullCalendar: {
+          exports: 'FullCalendar',
+          deps: ['css!libs/fullcalendar/main.css'],
+      },
       },
     })
 

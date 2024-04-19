@@ -1,6 +1,6 @@
-define(['platform/app/drug-manage/sample.js'], function (Sample) {
+define(['FullCalendar'], function (FullCalendar) {
 
-    const sampleData = Sample()
+
     
       const refs = {}
     
@@ -22,17 +22,48 @@ define(['platform/app/drug-manage/sample.js'], function (Sample) {
                   },
                   body: {
                     children:{
-                        component: 'Result',
-                        attrs:{
-                            style:{
-                                paddingTop:'10rem'
+                        component:'Layout',
+                        classes:{
+                            'vnext-layout-panel':true
+                        },
+                        body:{
+                            children: {
+                                styles:{
+                                    padding:2
+                                },
+                                onRendered:({inst})=>{
+                                    
+                                    let calendarInstance = new FullCalendar.Calendar(inst.element, {
+                                        headerToolbar: {
+                                            left: "prev,today,next",
+                                            center: "title",
+                                            right: "",
+                                        },
+                                        initialView: "dayGridMonth",
+                                        initialDate: new Date(),
+                                        selectable: true,
+                                        selectMirror: true,
+                                        expandRows: true,
+                                        height: "auto",
+                                        fixedWeekCount: true,
+                                        nowIndicator: true,
+                                        dayMaxEventRows: 8,
+                                      
+                                        progressiveEventRendering: true,
+                                      
+                                        eventContent: function ({ event }, element) {
+                                            return {
+                                                html: `<div style="overflow: hidden;" title="${event.title}">${event.title}</div>`,
+                                            };
+                                        },
+                                    });
+
+                                    calendarInstance.render();
+                                }
                             }
                         },
-                        status: '500',
-                        title: '施工中',
-                        subTitle: '内容正在施工中',
-                        
-                      }
+                      
+                    }
                   }
               },
           }
