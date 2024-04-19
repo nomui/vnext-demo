@@ -96,7 +96,8 @@ define([], function () {
             itemRender: ({ list, item, itemData }) => {
                 return {
                     styles:{
-                        padding:1
+                        padding:1,
+                        cursor:'pointer'
                     },
                     children: {
                         component: 'Flex',
