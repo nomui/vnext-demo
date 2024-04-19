@@ -206,6 +206,10 @@
     box-shadow: 0 0 2px -1px rgba(0, 0, 0, 0.25), 0 5px 15px -5px rgba(0, 0, 0, 0.15);
 }
 
+.vnext-platform-contact-type-tree {
+    padding: 0 .5rem;
+}
+
 .vnext-platform-contact-type-tree .nom-tree-node-expandable-indicator {
     visibility: hidden;
 }
@@ -213,6 +217,7 @@
 .vnext-platform-contact-type-tree .nom-tree-node-content {
     padding-top: .75rem;
     padding-bottom: .75rem;
+    border-radius: 5px;
 }
 
 .vnext-platform-contact-type-tree .nom-tree-node-content.s-selected,.vnext-platform-contact-type-tree .nom-tree-node-content.s-selected:hover {
