@@ -126,7 +126,7 @@
 
 .vnext-platform-workspace {
     background: #F7F8FB;
-    box-shadow:  inset 0 4px 8px -5px rgba(0, 0, 0, 0.15);
+    /* box-shadow:  inset 0 4px 8px -5px rgba(0, 0, 0, 0.15); */
 }
 
 .vnext-platform-dashboard-tabs {
@@ -156,6 +156,23 @@
 
 .vnext-workspace-conainer >.nom-layout-body {
     padding: 1rem;
+}
+
+.vnext-workspace-conainer {
+    position: relative;
+}
+
+.vnext-workspace-conainer::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    box-shadow:  inset 0 4px 8px -5px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .vnext-platform-contact {
