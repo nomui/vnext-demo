@@ -5,19 +5,19 @@ define(['css!app.css'], function () {
     const menuData =[{
       text: "概览",
       icon: "edit",
-      url: "#!overview",
+      // url: "#!overview",
       key: "#!overview",
     },
     {
       text: "任务",
       icon: "edit",
-      url: "#!tasks",
+      // url: "#!tasks",
       key: "#!tasks",
     },
     {
       text: "发现",
       icon: "edit",
-      url: "#!sae",
+      // url: "#!sae",
       key: "#!sae",
     },]
 
@@ -75,14 +75,6 @@ define(['css!app.css'], function () {
 
 
 
-    const renderMainMenu=()=>{
-
-    }
-
-    const renderSubMenu = ()=>{
-
-    }
-  
     return ({ route, context, router, app }) => {
  
       return {
@@ -135,6 +127,10 @@ define(['css!app.css'], function () {
                     classes:{
                       'vnext-app-sub-menu':true
                     },
+                    itemSelectable: {
+                      byClick: true,
+                    },
+                    keyField: 'key',
                     items:subMenuData
                   }
                 },

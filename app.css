@@ -62,3 +62,12 @@
 .vnext-app-sub-menu >li .nom-menu-item.s-selected >.nom-menu-item-icon {
     color: #597EF7;
 }
+
+.vnext-app-main-menu .nom-menu-item:hover {
+    color: #333 !important;
+}
+
+.vnext-app-main-menu .nom-menu-item.s-selected {
+    background-color: #D9E0F8 !important;
+    color: var(--nom-color-primary) !important;
+}
