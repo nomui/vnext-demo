@@ -2,7 +2,7 @@ define(['css!app.css'], function () {
    
     const refs = {}
 
-    const items =[{
+    const menuData =[{
       text: "概览",
       icon: "edit",
       url: "#!overview",
@@ -16,6 +16,58 @@ define(['css!app.css'], function () {
     },
     {
       text: "发现",
+      icon: "edit",
+      url: "#!sae",
+      key: "#!sae",
+    },]
+
+    const subMenuData = [{
+      text: "里程碑",
+      icon: "edit",
+      url: "#!overview",
+      key: "#!overview",
+    },
+    {
+      text: "入组",
+      icon: "edit",
+      url: "#!tasks",
+      key: "#!tasks",
+    },
+    {
+      text: "质量",
+      icon: "edit",
+      url: "#!sae",
+      key: "#!sae",
+      
+    },
+    {
+      text: "文档",
+      icon: "edit",
+      // url: "#!overview",
+      key: "#!overview",
+      items:[
+        {
+          text:'所有文档'
+        },
+        {
+          text:'待审批'
+        }
+      ]
+    },
+    {
+      text: "财务",
+      icon: "edit",
+      url: "#!tasks",
+      key: "#!tasks",
+    },
+    {
+      text: "团队",
+      icon: "edit",
+      url: "#!sae",
+      key: "#!sae",
+    },
+    {
+      text: "设置",
       icon: "edit",
       url: "#!sae",
       key: "#!sae",
@@ -62,7 +114,7 @@ define(['css!app.css'], function () {
                     itemSelectable: {
                       byClick: true,
                     },
-                    items: items,
+                    items: menuData,
                     keyField: 'key',
                   }
                 },
@@ -80,7 +132,10 @@ define(['css!app.css'], function () {
                   },
                   children:{
                     component:'Menu',
-                    // items:renderSubMenu()
+                    classes:{
+                      'vnext-app-sub-menu':true
+                    },
+                    items:subMenuData
                   }
                 },
                 body: {
