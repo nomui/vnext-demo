@@ -1,102 +1,101 @@
 define([], function () {
 
     const refs = {}
-  
-  
-    const renderContactTypes = ({data})=>{
+
+
+    const renderContactTypes = ({ data }) => {
         return {
-            component:'Tree',
-            classes:{
-                'vnext-platform-contact-type-tree':true
+            component: 'Tree',
+            initExpandLevel: -1,
+            classes: {
+                'vnext-platform-contact-type-tree': true
             },
-            expandable:{
-                byClick:false,
+            expandable: {
+                byIndicator: true,
             },
             nodeSelectable: {
                 onNodeSelect: ({ node }) => {
-                  selectedNode = node
+                    selectedNode = node
                 },
-              },
+            },
             nodeDefaults: {
                 _config: (inst) => {
-                    
-                    const {data}=inst.props
-                  inst.setProps({
-                
-                    data: {
-                      icon: {
-                        type: inst.level>0?'minus':data.icon,
-                      },
-                    },
-                  })
+                    const { data } = inst.props
+                    inst.setProps({
+                        data: {
+                            icon: {
+                                type: inst.level > 0 ? 'minus' : data.icon,
+                            },
+                        },
+                    })
                 },
-              },
-              data:data
+            },
+            data: data
         }
 
     }
 
-    const renderContactList = ({data})=>{
+    const renderContactList = ({ data }) => {
         return {
-            component:'List',
-            cols:1,
-            data:data,
-            gutter:'md',
-            itemRender:({itemData})=>{
+            component: 'List',
+            cols: 1,
+            data: data,
+            gutter: 'md',
+            itemRender: ({ itemData }) => {
                 return {
-                    component:'Flex',
-                    align:'center',
-                    classes:{
-                        'vnext-contact-list-item':true
+                    component: 'Flex',
+                    align: 'center',
+                    classes: {
+                        'vnext-contact-list-item': true
                     },
-                    gutter:'small',
-                    cols:[
+                    gutter: 'small',
+                    cols: [
                         {
-                            children:{
-                                component:'Avatar',
-                                src:itemData.avatar,
-                                text:itemData.text
+                            children: {
+                                component: 'Avatar',
+                                src: itemData.avatar,
+                                text: itemData.text
                             }
                         },
                         {
-                            rows:[
+                            rows: [
                                 {
-                                    align:'center',
-                                    gutter:'medium',
-                                    cols:[
+                                    align: 'center',
+                                    gutter: 'medium',
+                                    cols: [
                                         {
-                                            tag:'h5',
-                                    children:itemData.text
+                                            tag: 'h5',
+                                            children: itemData.text
                                         },
                                         itemData.tag && {
-                                            component:'List',
-                                            gutter:'sm',
-                                            items:itemData.tag.map(n=>{
+                                            component: 'List',
+                                            gutter: 'sm',
+                                            items: itemData.tag.map(n => {
                                                 return {
-                                                    component:'Tag',
+                                                    component: 'Tag',
                                                     color: 'blue',
-                                                    size:'xs',
-                                                    text:n.text
+                                                    size: 'xs',
+                                                    text: n.text
                                                 }
                                             })
                                         }
                                     ]
                                 },
                                 {
-                                    align:'center',
-                                    classes:{
-                                        'muted':true
+                                    align: 'center',
+                                    classes: {
+                                        'muted': true
                                     },
-                                    cols:[
+                                    cols: [
                                         {
-                                            children:itemData.role
+                                            children: itemData.role
                                         },
                                         {
-                                            component:'Divider',
+                                            component: 'Divider',
                                             type: 'vertical',
                                         },
                                         {
-                                            children:itemData.location
+                                            children: itemData.location
                                         }
                                     ]
                                 }
@@ -108,7 +107,7 @@ define([], function () {
         }
 
     }
-  
+
     return ({ route, context, router, app }) => {
         return {
             title: '联系人', // 页面标题
@@ -124,147 +123,146 @@ define([], function () {
                 },
                 body: {
                     children: {
-                      component:'Layout',
-                      classes:{
-                        'vnext-platform-contact':true
-                      },
-                      sider:{
-                        classes:{
-                            'vnext-platform-contact-sider':true
-
+                        component: 'Layout',
+                        classes: {
+                            'vnext-platform-contact': true
                         },
-                        children:{
-                            component:'Layout',
-                            header:{
-                                styles:{
-                                    border:'none'
-                                },
-                                children:{
-                                    component:'Flex',
-                                    classes:{
-                                        'vnext-platform-contact-title':true
-                                    },
-                                    align:'center',
-                                    fit:true,
-                                    gap:'small',
-                                    cols:[
-                                        {
-                                            component:'Avatar',
-                                            text:'微'
-                                        },
-                                      {  
-                                       
-                                        component:'Ellipsis',
-                                        text:'微试云(安徽)医疗信息有限公司'
-                                    }
-                                    ]
-                                }
+                        sider: {
+                            classes: {
+                                'vnext-platform-contact-sider': true
+
                             },
-                            body:{
-                                children: renderContactTypes({
-                                    data:[
-                                        {
-                                            text: '组织架构',
-                                            icon:'edit',
-                                            children: [
-                                                { text: '产品' }, 
-                                                { text: '研发' }
-                                            ],
-                                          },
-                                          { text: '外部联系人' , icon:'edit',}, 
-                                          { text: '新的联系人' , icon:'edit',}, 
-                                          { text: '星标联系人', icon:'edit', }, 
-                                          { text: '邮件联系人' , icon:'edit',}, 
-                                          { text: '我的群组', icon:'edit', }, 
-                                    ]
-                                })
-                            }
-                        }
-                      },
-                      body:{
-                        children:{
-                            component:'Layout',
-                            header:{
-                                children:{
-                                    component:'Flex',
-                                    align:'center',
-                                    fit:true,
-                                    cols:[
-                                      {  
-                                        classes:{
-                                            'vnext-platform-contact-subtitle':true
+                            children: {
+                                component: 'Layout',
+                                header: {
+                                    styles: {
+                                        border: 'none'
+                                    },
+                                    children: {
+                                        component: 'Flex',
+                                        classes: {
+                                            'vnext-platform-contact-title': true
                                         },
-                                        children:'组织架构'
-                                    }
-                                    ]
-                                }
-                            },
-                            body:{
-                                styles:{
-                                    padding:1,
-                                },
-                                children:[
-                                    {
-                                        children: {
-                                            component: 'Breadcrumb',
-                                            items: [
-                                              { text: '微试云(安徽)医疗信息有限公司'},
-                                              { text: '产品中心' },
-                                            ],
-                                          }
-                                    },
-                                 {
-                                    styles:{
-                                        padding:1
-                                    },
-                                    children:   renderContactList({
-                                        data:[
+                                        align: 'center',
+                                        fit: true,
+                                        gap: 'small',
+                                        cols: [
                                             {
-                                                text:'李玲玲',
-                                                role:'开发中心副总监',
-                                                location:'安徽',
-                                                tag:[
-                                                    {
-                                                        text:'管理员'
-                                                    },
-                                                    {
-                                                        text:'负责人'
-                                                    }
+                                                component: 'Avatar',
+                                                text: '微'
+                                            },
+                                            {
+
+                                                component: 'Ellipsis',
+                                                text: '微试云(安徽)医疗信息有限公司'
+                                            }
+                                        ]
+                                    }
+                                },
+                                body: {
+                                    children: renderContactTypes({
+                                        data: [
+                                            {
+                                                text: '组织架构',
+                                                icon: 'edit',
+                                                children: [
+                                                    { text: '产品' },
+                                                    { text: '研发' }
                                                 ],
                                             },
-                                            {
-                                                text:'郭宁霞',
-                                                role:'产品副总监',
-                                                location:'长沙',
-                                                tag:[
-                    
-                                                    {
-                                                        text:'负责人'
-                                                    }
-                                                ],
-                                            },
-                                            {
-                                                text:'夏月',
-                                                role:'UI设计师',
-                                                location:'长沙',
-                                            },
-                                            {
-                                                text:'王玲玲',
-                                                role:'产品经理',
-                                                location:'安徽',
-                                            },
+                                            { text: '外部联系人', icon: 'edit', },
+                                            { text: '新的联系人', icon: 'edit', },
+                                            { text: '星标联系人', icon: 'edit', },
+                                            { text: '邮件联系人', icon: 'edit', },
+                                            { text: '我的群组', icon: 'edit', },
                                         ]
                                     })
-                                 }
-                            ]
+                                }
+                            }
+                        },
+                        body: {
+                            children: {
+                                component: 'Layout',
+                                header: {
+                                    children: {
+                                        component: 'Flex',
+                                        align: 'center',
+                                        fit: true,
+                                        cols: [
+                                            {
+                                                classes: {
+                                                    'vnext-platform-contact-subtitle': true
+                                                },
+                                                children: '组织架构'
+                                            }
+                                        ]
+                                    }
+                                },
+                                body: {
+                                    styles: {
+                                        padding: 1,
+                                    },
+                                    children: [
+                                        {
+                                            children: {
+                                                component: 'Breadcrumb',
+                                                items: [
+                                                    { text: '微试云(安徽)医疗信息有限公司' },
+                                                    { text: '产品中心' },
+                                                ],
+                                            }
+                                        },
+                                        {
+                                            styles: {
+                                                padding: 1
+                                            },
+                                            children: renderContactList({
+                                                data: [
+                                                    {
+                                                        text: '李玲玲',
+                                                        role: '开发中心副总监',
+                                                        location: '安徽',
+                                                        tag: [
+                                                            {
+                                                                text: '管理员'
+                                                            },
+                                                            {
+                                                                text: '负责人'
+                                                            }
+                                                        ],
+                                                    },
+                                                    {
+                                                        text: '郭宁霞',
+                                                        role: '产品副总监',
+                                                        location: '长沙',
+                                                        tag: [
+
+                                                            {
+                                                                text: '负责人'
+                                                            }
+                                                        ],
+                                                    },
+                                                    {
+                                                        text: '夏月',
+                                                        role: 'UI设计师',
+                                                        location: '长沙',
+                                                    },
+                                                    {
+                                                        text: '王玲玲',
+                                                        role: '产品经理',
+                                                        location: '安徽',
+                                                    },
+                                                ]
+                                            })
+                                        }
+                                    ]
+                                }
                             }
                         }
-                      }
                     }
                 },
             },
         }
     }
-  
-  })
-  
+
+})
