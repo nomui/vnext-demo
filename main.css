@@ -84,6 +84,10 @@
     background: #fff;
 }
 
+.vnext-platform-main-menu .nom-menu-item:hover {
+    background: #ffffff10 !important;
+}
+
 .vnext-platform-main-menu.nom-menu-compact .nom-icon {
     font-size: 1.75rem !important;
 }
