@@ -187,6 +187,9 @@ define([], function () {
                             'vnext-layout-panel':true
                         },
                         body:{
+                            styles:{
+                                padding:2
+                            },
                             children: renderProjectGrid()
                         },
                         footer:{
