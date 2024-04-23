@@ -39,6 +39,16 @@ define([], function () {
             projectName:'拉布拉多赞片(ZIGJ1104)用于胃痛',
             status:'进行中',
             stage:'准备阶段',
+            percent:36,
+            inGroup:45,
+            orgs:100,
+            trialStage:'II期'
+        },
+        {
+            projectNo:'WT005',
+            projectName:'拉布拉多赞片(ZIGJ1104)用于胃痛',
+            status:'进行中',
+            stage:'准备阶段',
             percent:76,
             inGroup:90,
             orgs:100,
