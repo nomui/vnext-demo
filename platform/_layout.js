@@ -1,4 +1,4 @@
-define(['menu-data.js', 'css!theme.css', 'css!main.css'], function (menuData) {
+define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menuData) {
   const { items, highlightMap } = menuData()
   let stillShowNavi = false
   const refs = {}
