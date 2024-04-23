@@ -11,57 +11,57 @@ define([], function () {
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url:'!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url:'!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
         {
             icon: 'edit',
             text: '药物管理',
-            url: 'app/drug-manage'
+            url: '!app!drug-manage/home'
         },
     ]
 
