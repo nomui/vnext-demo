@@ -21,10 +21,16 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
     if (document.querySelector('.vnext-platform-main-menu').classList.contains('nom-menu-compact')) {
       document.querySelector('.vnext-platform-main-menu').classList.remove('nom-menu-compact')
       document.querySelector('body').classList.add('large-navi')
+      refs.naviCollapse.update({
+        type:'shouqi'
+      })
     }
     else {
       document.querySelector('.vnext-platform-main-menu').classList.add('nom-menu-compact')
       document.querySelector('body').classList.remove('large-navi')
+      refs.naviCollapse.update({
+        type:'zhankai'
+      })
     }
   }
 
@@ -125,10 +131,13 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                 classes: {
                   'vnext-platform-main-sider-toogle': true
                 },
+                ref:(c)=>{
+                  refs.naviCollapse = c
+                },
                 onClick: () => {
                   handleMainNaviSize()
                 },
-                type: 'edit'
+                type: 'zhankai'
               }
             }
           }
