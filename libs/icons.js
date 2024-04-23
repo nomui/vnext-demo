@@ -39,10 +39,10 @@ icons.forEach(n=>{
     // 如果是单色图标，统一修改 width=1em" height="1em" fill="currentColor"，如果是彩色图标则只修改 width=1em" height="1em"
     let svg = ''
     if (n.colored !== true) {
-        svg = n.svg.replace(/fill="[^"]*"/g,'').replace(/width="[^"]*"/g, 'width="1em"').replace(/height="[^"]*"/g, 'height="1em" fill="currentColor"','vnext-icons')
+        svg = n.svg.replace(/fill="[^"]*"/g,'').replace(/width="[^"]*"/g, 'width="1em"').replace(/height="[^"]*"/g, 'height="1em" fill="currentColor"', n.category || 'vnext-icons')
     }
     else {
-        svg = n.svg.replace(/width="[^"]*"/g, 'width="1em"').replace(/height="[^"]*"/g, 'height="1em"','vnext-icons-colored')
+        svg = n.svg.replace(/width="[^"]*"/g, 'width="1em"').replace(/height="[^"]*"/g, 'height="1em"',n.category || 'vnext-icons-colored')
     }
 
     nomui.Icon.add(n.name,svg)
