@@ -147,7 +147,7 @@ define([], function () {
                             console.log(`选中的key:${key}`)
                         },
                         classes: {
-                            'vnext-platform-dashboard-tabs': true
+                            'vnext-platform-application-tabs': true
                         },
                         uistyle: 'card',
                         tabs: [
@@ -160,7 +160,17 @@ define([], function () {
                                         rows: [
                                             {
                                                 children: renderAppList(appArr1)
-                                            }
+                                            },
+                                            {
+                                                tag:'h5',
+                                                classes:{
+                                                    'vnext-platform-application-group-title':true
+                                                },
+                                                children:'热门推荐'
+                                            },
+                                            {
+                                                children: renderAppList(appArr1)
+                                            },
                                         ]
                                     }
                                 },
