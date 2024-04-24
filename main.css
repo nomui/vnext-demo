@@ -294,6 +294,6 @@
 .vnext-main-bar-trigger {
     cursor: pointer;
     padding-left: .5rem;
-    padding-right: .5rem;
+    transform: translateY(2px);
 }
 

@@ -169,7 +169,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                       },
                       children:{
                         component: 'Icon',
-                        type: 'drag',
+                        type: 'yingyongcaidan',
                         
                       }
                     }
@@ -236,7 +236,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                       },
                       {
                         component: 'Icon',
-                        type: 'edit'
+                        type: 'tuichu'
                       },
                     ]
 

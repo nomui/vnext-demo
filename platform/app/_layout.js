@@ -4,45 +4,68 @@ define(['css!app.css'], function () {
 
     const menuData =[{
       text: "概览",
-      icon: "edit",
-      // url: "#!overview",
-      key: "#!overview",
+      icon: "gailan",
     },
     {
       text: "任务",
-      icon: "edit",
-      // url: "#!tasks",
-      key: "#!tasks",
+      icon: "renwu",
     },
     {
       text: "发现",
-      icon: "edit",
-      // url: "#!sae",
-      key: "#!sae",
-    },]
+      icon: "faxian",
+    },
+    {
+      text: "报告",
+      icon: "baobiao",
+    },
+    {
+      text: "受试者",
+      icon: "shoushizhe",
+    },
+    {
+      text: "SAE",
+      icon: "sae",
+    },
+    {
+      text: "文档",
+      icon: "wendang",
+    },
+    {
+      text: "财务",
+      icon: "caiwu",
+    },
+    {
+      text: "统计",
+      icon: "tongji",
+    },
+    {
+      text: "更多",
+      icon: "gengduo",
+    },
+  ]
 
     const subMenuData = [{
       text: "里程碑",
-      icon: "edit",
+      icon: "xiangmu",
       // url: "#!overview",
       key: "#!overview",
     },
     {
       text: "入组",
-      icon: "edit",
+      icon: "xiangmuruzu",
       // url: "#!tasks",
       key: "#!tasks",
     },
     {
       text: "质量",
-      icon: "edit",
+      icon: "zhiliang2",
       // url: "#!sae",
       key: "#!sae",
       
     },
     {
       text: "文档",
-      icon: "edit",
+      icon: "wendang",
       // url: "#!overview",
       key: "#!overview",
       items:[
@@ -56,19 +79,19 @@ define(['css!app.css'], function () {
     },
     {
       text: "财务",
-      icon: "edit",
+      icon: "caiwu",
       // url: "#!tasks",
       key: "#!tasks",
     },
     {
       text: "团队",
-      icon: "edit",
+      icon: "tuandui",
       // url: "#!sae",
       key: "#!sae",
     },
     {
       text: "设置",
-      icon: "edit",
+      icon: "shezhi",
       // url: "#!sae",
       key: "#!sae",
     },]
