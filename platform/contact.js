@@ -24,7 +24,7 @@ define([], function () {
                     inst.setProps({
                         data: {
                             icon: {
-                                type: inst.level > 0 ? 'minus' : data.icon,
+                                type: inst.level > 0 ? 'subnode' : data.icon,
                             },
                         },
                     })
@@ -164,17 +164,17 @@ define([], function () {
                                         data: [
                                             {
                                                 text: '组织架构',
-                                                icon: 'edit',
+                                                icon: 'zuzhijiagou',
                                                 children: [
                                                     { text: '产品' },
                                                     { text: '研发' }
                                                 ],
                                             },
-                                            { text: '外部联系人', icon: 'edit', },
-                                            { text: '新的联系人', icon: 'edit', },
-                                            { text: '星标联系人', icon: 'edit', },
-                                            { text: '邮件联系人', icon: 'edit', },
-                                            { text: '我的群组', icon: 'edit', },
+                                            { text: '外部联系人', icon: 'waibulianxiren', },
+                                            { text: '新的联系人', icon: 'xindelianxiren', },
+                                            { text: '星标联系人', icon: 'xingbiao', },
+                                            { text: '邮件联系人', icon: 'youjianlianxiren', },
+                                            { text: '我的群组', icon: 'renqun', },
                                         ]
                                     })
                                 }

@@ -208,7 +208,7 @@
 }
 
 .vnext-application-item {
-    width:160px;
+    width:220px;
     padding: 1.25rem 2rem;
     border-radius: 8px;
     box-shadow: 0 0 2px -1px rgba(0, 0, 0, 0.25), 0 5px 15px -5px rgba(0, 0, 0, 0.15);
@@ -233,7 +233,10 @@
     background-color: #D4DFF6;
 }
 
-
+.vnext-platform-contact-type-tree .nom-icon.p-type-subnode {
+    font-size: 85%;
+    color:#aaa;
+}
 
 .vnext-contact-list-item h5 {
     font-size: 1rem;

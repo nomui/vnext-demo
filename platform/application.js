@@ -4,62 +4,72 @@ define([], function () {
 
     const appArr1 = [
         {
-            icon: 'edit',
+            icon:'image/app-icons/1.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
+            icon:'image/app-icons/2.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
+            icon:'image/app-icons/3.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
+            icon:'image/app-icons/4.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
+            icon:'image/app-icons/5.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
-            text: '药物管理',
-            url:'!app!drug-manage/home'
-        },
-        {
-            icon: 'edit',
+            icon:'image/app-icons/6.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
+            icon:'image/app-icons/7.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
+            icon:'image/app-icons/1.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
-            text: '药物管理',
-            url:'!app!drug-manage/home'
-        },
-        {
-            icon: 'edit',
+            icon:'image/app-icons/2.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
         {
-            icon: 'edit',
+            icon:'image/app-icons/3.png',
+            text: '药物管理',
+            url: '!app!drug-manage/home'
+        },
+        {
+            icon:'image/app-icons/4.png',
+            text: '药物管理',
+            url: '!app!drug-manage/home'
+        },
+        {
+            icon:'image/app-icons/5.png',
+            text: '药物管理',
+            url: '!app!drug-manage/home'
+        },
+        {
+            icon:'image/app-icons/6.png',
+            text: '药物管理',
+            url: '!app!drug-manage/home'
+        },
+        {
+            icon:'image/app-icons/7.png',
             text: '药物管理',
             url: '!app!drug-manage/home'
         },
@@ -108,11 +118,12 @@ define([], function () {
                         onClick: () => {
                             nomapp.currentRoute.push(itemData.url)
                         },
+                        gap:'medium',
                         cols: [
                             {
                                 children: {
-                                    component: 'Icon',
-                                    type: itemData.icon
+                                    component: 'Image',
+                                    src: itemData.icon
                                 }
                             },
                             {

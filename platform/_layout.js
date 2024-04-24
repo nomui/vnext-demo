@@ -121,6 +121,11 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                 itemSelectable: {
                   byClick: true,
                 },
+                // itemDefaults:{
+                //   onSelect:()=>{
+                //     debugger
+                //   }
+                // },
                 items: items,
                 keyField: 'key',
               }
@@ -232,7 +237,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                     cols: [
                       {
                         component: 'Icon',
-                        type: 'edit'
+                        type: 'bell'
                       },
                       {
                         component: 'Icon',

@@ -46,7 +46,7 @@ define(['css!app.css'], function () {
 
     const subMenuData = [{
       text: "里程碑",
-      icon: "xiangmu",
+      icon: "lichengbei",
       // url: "#!overview",
       key: "#!overview",
     },
