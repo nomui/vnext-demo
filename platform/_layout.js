@@ -66,6 +66,105 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
     }
   }
 
+  const renderNaviTitle = ()=>{
+
+    const data1 = [
+      {
+        text:'微试云(安徽)医疗信息有限公司'
+      },
+      {text:'浙江太美医疗科技股份有限公司'},
+     
+      {
+        text:'山东绿叶制药有限公司'
+      },
+      {
+        text:'江苏恒瑞医药股份有限公司'
+      },
+      {
+        text:'用天士力医药集团股份有限公司'
+      }
+    ]
+
+    const data2 = [
+      {text:'拉布拉多赞片（ZJGJ1104）用于胃痛'},
+      {
+        text:'CTS5063 单克抗体注射剂'
+      },
+      {
+        text:'用于肌营养不良症的CRISPR-Cas9'
+      },
+      {
+        text:'糖尿病药物Exenatide用于治疗帕金'
+      },
+      {
+        text:'用于肌营养不良症的CRISPR-Cas9'
+      }
+    ]
+
+
+   
+
+
+    refs.naviTitle.update({
+      children:{
+        component: 'Flex',
+        align: 'center',
+        cols: [
+          {
+            classes: {
+              'vnext-platform-org-title': true
+            },
+            ref:(c)=>{
+              refs.naviTitleText = c
+            },
+            children: isAppPage()?data2[0].text:data1[0].text
+          },
+          {
+            component: 'Icon',
+            styles:{
+              cursor:'pointer'
+            },
+            type: 'down',
+            popup: {
+              classes:{
+                'vnext-navi-select-pop':true
+              },
+              ref:(c)=>{
+                refs.naviTitlePop = c
+              },
+              children: {
+                component:'Flex',
+                rows:[
+                  {
+                    component:'Textbox',
+                    rightIcon:'search'
+                  },
+                  {
+                    component:'List',
+                    cols:1,
+                    itemRender:({itemData})=>{
+                      return {
+                        component:'Ellipsis',
+                        text:itemData.text,
+                        onClick:()=>{
+                          refs.naviTitleText.update({
+                            children:itemData.text
+                          })
+                          refs.naviTitlePop.hide()
+                        }
+                      }
+                    },
+                    data: isAppPage()?data2:data1
+                  }
+                ]
+              },
+            },
+          }
+        ]
+      }
+    }) 
+  }
+
   return ({ route, context, router, app }) => {
     return {
       onRendered: () => {
@@ -73,6 +172,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
         initEvents()
       }, // 视图组件渲染完成后调用
       onHashChange: ({ route }) => { 
+        renderNaviTitle()
         showOrHidePlatformNavi()
       }, // 页面 url 的 hash 部分更改时调用
       onSubpathChange: ({ route }) => { }, // 该页面所渲染的路由器所在的路径的子路径变更时调用
@@ -182,20 +282,12 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                   {
                     grow: true,
                     children: {
-                      component: 'Flex',
-                      align: 'center',
-                      cols: [
-                        {
-                          classes: {
-                            'vnext-platform-org-title': true
-                          },
-                          children: '微试云（安徽）医疗信息有限公司'
-                        },
-                        {
-                          component: 'Icon',
-                          type: 'down'
-                        }
-                      ]
+                      ref:(c)=>{
+                        refs.naviTitle = c
+                      },
+                      onCreated:()=>{
+                        renderNaviTitle()
+                      }
                     }
                   },
                   {
@@ -237,10 +329,16 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                     cols: [
                       {
                         component: 'Icon',
+                        styles:{
+                          cursor:'pointer'
+                        },
                         type: 'bell'
                       },
                       {
                         component: 'Icon',
+                        styles:{
+                          cursor:'pointer'
+                        },
                         type: 'tuichu'
                       },
                     ]

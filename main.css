@@ -144,9 +144,6 @@
     box-shadow: 4px 0px 5px -5px rgba(0, 0, 0, 0.15);
 }
 
-.vnext-platform-application-tabs .nom-tab-list .s-selected {
-
-}
 
 
 .vnext-platform-application-tabs .nom-tab-list > .nom-list-content {
@@ -300,3 +297,25 @@
     transform: translateY(2px);
 }
 
+.vnext-navi-select-pop {
+    padding: .5rem;
+    width:250px;
+
+}
+.vnext-navi-select-pop .nom-list {
+    padding: 0 .5rem;
+}
+
+.vnext-navi-select-pop .nom-list .nom-list-item-content {
+    cursor: pointer;
+    padding: .5rem;
+}
+
+.vnext-navi-select-pop .nom-list .nom-list-item-content:hover {
+    background: #f5f5f5;
+}
+
+.vnext-navi-select-pop .nom-list .nom-list-item-content.s-selected {
+    color: var(--nom-color-primary);
+    background-color: rgba(var(--nom-color-primary),.1)
+}
