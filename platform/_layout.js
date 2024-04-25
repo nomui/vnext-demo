@@ -102,7 +102,6 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
     ]
 
 
-   
 
 
     refs.naviTitle.update({
@@ -147,6 +146,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                         component:'Ellipsis',
                         text:itemData.text,
                         onClick:()=>{
+                          currentTitleText = itemData.text
                           refs.naviTitleText.update({
                             children:itemData.text
                           })
@@ -172,7 +172,10 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
         initEvents()
       }, // 视图组件渲染完成后调用
       onHashChange: ({ route }) => { 
-        renderNaviTitle()
+        if (nomapp.lastPageType !== isAppPage()) {
+          renderNaviTitle()
+        }
+        nomapp.lastPageType = isAppPage()
         showOrHidePlatformNavi()
       }, // 页面 url 的 hash 部分更改时调用
       onSubpathChange: ({ route }) => { }, // 该页面所渲染的路由器所在的路径的子路径变更时调用
