@@ -108,6 +108,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
       children:{
         component: 'Flex',
         align: 'center',
+        gap:'small',
         cols: [
           {
             classes: {
