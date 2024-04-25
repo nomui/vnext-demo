@@ -189,7 +189,7 @@ define([], function () {
                             },
                             {
                                 key: '2',
-                                item: { text: renderTabTitle({ icon: 'edit', text: '临床运营' }) },
+                                item: { text: renderTabTitle({ icon: 'tab-tongji', text: '临床运营' }) },
                                 panel: {
                                     children: {
                                         component: 'Flex',
@@ -204,7 +204,7 @@ define([], function () {
                             },
                             {
                                 key: 'contact',
-                                item: { text: renderTabTitle({ icon: 'edit', text: '药物警戒' }) },
+                                item: { text: renderTabTitle({ icon: 'tab-yonghu', text: '药物警戒' }) },
                                 panel: {
                                     children: {
                                         component: 'Flex',
