@@ -84,6 +84,7 @@ define([], function () {
                     width: '120px'
                 }
             },
+            gap:'small',
             cols: [
                 {
                     children: {
@@ -164,7 +165,7 @@ define([], function () {
                         tabs: [
                             {
                                 key: '1',
-                                item: { text: renderTabTitle({ icon: 'edit', text: '全部' }) },
+                                item: { text: renderTabTitle({ icon: 'tab-quanbu', text: '全部' }) },
                                 panel: {
                                     children: {
                                         component: 'Flex',
