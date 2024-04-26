@@ -31,7 +31,6 @@
 
     require([], function () {
 
-  
 
       win.nomapp = new nomui.App({
         viewsDir: 'platform',
