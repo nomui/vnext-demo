@@ -205,7 +205,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                   ref: (c) => {
                     refs.mainLogo = c
                   },
-                  src: '../image/wetrial-logo.png',
+                  src: '../vnext-demo/image/wetrial-logo.png',
                   width: 60,
                   alt: 'VNext',
 
