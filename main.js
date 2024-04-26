@@ -16,10 +16,10 @@
       waitSeconds: 15, //超时时间
       paths: {
         "dragula":'libs/dragula/dragula.min',
-        "menu-service":'/libs/menu-service',
-        "icons":'/libs/icons',
+        "menu-service":'libs/menu-service',
+        "icons":'libs/icons',
         'wetrial-echart': 'components/wetrial-chart/echarts', // Echarts图表
-        FullCalendar: '/libs/fullcalendar/main', // 日历
+        FullCalendar: 'libs/fullcalendar/main', // 日历
       },
       shim: {
         FullCalendar: {
