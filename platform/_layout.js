@@ -43,6 +43,7 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
     if (isAppPage()) {
       refs.naviTrigger.show()
       document.querySelector('.vnext-platform-main-menu').classList.add('nom-menu-compact')
+      document.querySelector('body').classList.remove('large-navi')
       document.querySelector('body').classList.remove('show-platform-navi')
     }
     else {
