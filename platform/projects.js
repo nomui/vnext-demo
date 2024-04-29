@@ -121,12 +121,23 @@ define([], function () {
                 field:'projectNo',
                 title:'项目编号',
                 width:120,
+                cellRender:({cellData})=>{
+                    return {
+                        component:'Button',
+                        inline:true,
+                        text:cellData,
+                        onClick:()=>{
+                            nomapp.currentRoute.push('!app!drug-manage/home')
+                        }
+                    }
+                }
             },
             {
                 field:'projectName',
                 title:'项目名称',
                 width:220,
-                ellipsis:true
+                ellipsis:true,
+               
             },
             {
                 field:'status',

@@ -42,12 +42,8 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
   const showOrHidePlatformNavi = () => {
     if (isAppPage()) {
       refs.naviTrigger.show()
+      document.querySelector('.vnext-platform-main-menu').classList.add('nom-menu-compact')
       document.querySelector('body').classList.remove('show-platform-navi')
-      if ( refs.mainMenu.props.compact!==true) {
-        refs.mainMenu.update({
-          compact:true
-        })
-      }
     }
     else {
       refs.naviTrigger.hide()
