@@ -41,9 +41,16 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
 
   const showOrHidePlatformNavi = () => {
     if (isAppPage()) {
+      refs.naviTrigger.show()
       document.querySelector('body').classList.remove('show-platform-navi')
+      if ( refs.mainMenu.props.compact!==true) {
+        refs.mainMenu.update({
+          compact:true
+        })
+      }
     }
     else {
+      refs.naviTrigger.hide()
       document.querySelector('body').classList.add('show-platform-navi')
     }
   }
@@ -275,6 +282,9 @@ define(['menu-data.js','icons' ,'css!theme.css', 'css!main.css'], function (menu
                       },
                       onClick:()=>{
                         handleNaviVisibility()
+                      },
+                      ref:(c)=>{
+                        refs.naviTrigger = c
                       },
                       children:{
                         component: 'Icon',
