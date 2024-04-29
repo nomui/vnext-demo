@@ -126,6 +126,7 @@ define([], function () {
                         component:'Button',
                         inline:true,
                         text:cellData,
+                        type:'link',
                         onClick:()=>{
                             nomapp.currentRoute.push('!app!drug-manage/home')
                         }
