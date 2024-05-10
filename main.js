@@ -12,7 +12,7 @@
           css: 'libs/require-css.min.js',
         },
       },
-      baseUrl: '/vnext-demo',
+      baseUrl: '/',
       waitSeconds: 15, //超时时间
       paths: {
         "dragula":'libs/dragula/dragula.min',
