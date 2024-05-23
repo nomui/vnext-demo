@@ -30,12 +30,21 @@ define(['grid-layout',], function (GridLayout) {
                                         text: '添加组件',
                                         onClick:()=>{
                                             refs.gridLayout.addItem({
-                                                key:'10', // 默认不传入key则组件自动生成一个Guid
+                                                // key:'10', // 默认不传入key则组件自动生成一个Guid
                                                 size_x:2,
                                                 size_y:2,
-                                                itemRender:()=>{
+                                                itemRender: () => {
                                                     return {
-                                                        children:'新组件'
+                                                        component: 'Panel',
+                                                        fit: true,
+                                                        header: {
+                                                            caption: {
+                                                                title: '组件标题'
+                                                            }
+                                                        },
+                                                        body: {
+                                                            children: '我是新增组件'
+                                                        }
                                                     }
                                                 }
                                             })
@@ -48,9 +57,18 @@ define(['grid-layout',], function (GridLayout) {
                                             refs.gridLayout.addItem({
                                                 size_x:2,
                                                 size_y:2,
-                                                itemRender:()=>{
+                                                itemRender: () => {
                                                     return {
-                                                        children:'新组件'
+                                                        component: 'Panel',
+                                                        fit: true,
+                                                        header: {
+                                                            caption: {
+                                                                title: '组件标题'
+                                                            }
+                                                        },
+                                                        body: {
+                                                            children: '我是新增组件'
+                                                        }
                                                     }
                                                 }
                                             },true)
@@ -123,35 +141,22 @@ define(['grid-layout',], function (GridLayout) {
                                         col: 3,
                                         size_x: 1,
                                         size_y: 2,
+                                        itemRender: () => {
+                                            return {
+                                                component: 'Panel',
+                                                fit: true,
+                                                header: {
+                                                    caption: {
+                                                        title: '面板标题'
+                                                    }
+                                                },
+                                                body: {
+                                                    children: '面板内容'
+                                                }
+                                            }
+                                        }
                                     },
-                                    {
-                                        key: '3',
-                                        row: 1,
-                                        col: 4,
-                                        size_x: 1,
-                                        size_y: 1,
-                                    },
-                                    {
-                                        key: '4',
-                                        row: 3,
-                                        col: 2,
-                                        size_x: 3,
-                                        size_y: 1,
-                                    },
-                                    {
-                                        key: '5',
-                                        row: 4,
-                                        col: 1,
-                                        size_x: 1,
-                                        size_y: 1,
-                                    },
-                                    {
-                                        key: '6',
-                                        row: 3,
-                                        col: 1,
-                                        size_x: 1,
-                                        size_y: 1,
-                                    },
+                                 
                                 ]
                             }
                         }

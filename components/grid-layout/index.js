@@ -124,8 +124,19 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
 
       if (!item.col || !item.row) {
         const pos = this._getlastPosition()
+        let flag = false
         for (let _row in pos) {
-          row = _row+1
+          if (this.props.cols - pos[_row] >=size_x) {
+
+            flag = true
+            row = _row
+            col = this.props.cols - pos[_row]
+          }
+          if (!flag) {
+            row = _row+1
+            col = 1
+          }
+          
         }
         if (prepend) {
           row =1
