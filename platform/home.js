@@ -28,10 +28,45 @@ define(['grid-layout',], function (GridLayout) {
                                     {
                                         component: 'Button',
                                         text: '添加组件',
+                                        onClick:()=>{
+                                            refs.gridLayout.add({
+                                                key:'10', // 默认不传入key则组件自动生成一个Guid
+                                                size_x:2,
+                                                size_y:2,
+                                                itemRender:()=>{
+                                                    return {
+                                                        children:'新组件'
+                                                    }
+                                                }
+                                            })
+                                        }
                                     },
                                     {
                                         component: 'Button',
-                                        text: '获取布局信息',
+                                        text: '在首位添加组件',
+                                        onClick:()=>{
+                                            refs.gridLayout.add({
+                                                size_x:2,
+                                                size_y:2,
+                                                itemRender:()=>{
+                                                    return {
+                                                        children:'新组件'
+                                                    }
+                                                }
+                                            },true)
+                                        }
+                                    },
+                                    {
+                                        component: 'Button',
+                                        text: '移除组件',
+                                        onClick:()=>{
+                                            // 传入组件key
+                                            refs.gridLayout.remove('1')
+                                        }
+                                    },
+                                    {
+                                        component: 'Button',
+                                        text: 'getData',
                                         onClick: () => {
                                             console.log(refs.gridLayout.getData())
                                         }
