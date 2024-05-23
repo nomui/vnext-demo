@@ -70,13 +70,12 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
       this.element.classList.remove('editing')
     }
 
-    serialize() {
+    _serialize() {
       return this.grid.serialize()
-
     }
 
-    getData() {
-      const arr = this.serialize()
+    _serializeData() {
+      const arr = this._serialize()
       const m = {}
       arr.forEach(n => {
         m[n.key] = n
@@ -85,6 +84,10 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
         const c = m[this.props.data[i].key]
         this.props.data[i] = { ...this.props.data[i], ...c }
       }
+    }
+
+    getData() {
+      this._serializeData()
       return this.props.data
     }
 
@@ -93,7 +96,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     _getlastPosition() {
-      const arr = this.serialize()
+      const arr = this._serialize()
       const map = {}
       arr.forEach(n=>{
         const {col,row,size_x,size_y} = n
@@ -161,6 +164,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     removeItem(key) {
+      this._serializeData()
       const arr = this.props.data.filter(n=>{
         return n.key !==key
       })
