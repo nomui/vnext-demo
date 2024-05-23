@@ -6,7 +6,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
         layoutProps: {
           min_cols: 1,
           helper: 'clone',
-          shift_widgets_up: false,
+          shift_widgets_up: true,
           shift_larger_widgets_down: false,
           collision: {
             wait_for_mouseup: true
