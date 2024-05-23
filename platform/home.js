@@ -45,7 +45,7 @@ define(['grid-layout',], function (GridLayout) {
                                         component: 'Button',
                                         text: '在首位添加组件',
                                         onClick:()=>{
-                                            refs.gridLayout.add({
+                                            refs.gridLayout.addItem({
                                                 size_x:2,
                                                 size_y:2,
                                                 itemRender:()=>{
@@ -61,7 +61,7 @@ define(['grid-layout',], function (GridLayout) {
                                         text: '移除组件',
                                         onClick:()=>{
                                             // 传入组件key
-                                            refs.gridLayout.remove('1')
+                                            refs.gridLayout.removeItem('1')
                                         }
                                     },
                                     {

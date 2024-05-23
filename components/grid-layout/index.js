@@ -108,7 +108,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
       return map
     }
 
-    add(item,prepend) {
+    addItem(item,prepend) {
       let {col=1,row=1,size_x=1,size_y=1,key=nomui.utils.newGuid()} = item
 
       if (size_x > this.props.cols) {
@@ -136,10 +136,17 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
       this.update({
         data:data
       })
-      
+
     }
 
-    remove(key) {
+    remove() {
+      this.grid.destroy()
+      this.replace({
+        children:''
+      })
+    }
+
+    removeItem(key) {
       const arr = this.props.data.filter(n=>{
         return n.key !==key
       })
