@@ -170,7 +170,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
           },
           ...this.props.layoutProps
         }).data('gridster');
-      }, 300)
+      }, 500)
 
     }
   }

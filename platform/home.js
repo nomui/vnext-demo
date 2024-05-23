@@ -29,7 +29,7 @@ define(['grid-layout',], function (GridLayout) {
                                         component: 'Button',
                                         text: '添加组件',
                                         onClick:()=>{
-                                            refs.gridLayout.add({
+                                            refs.gridLayout.addItem({
                                                 key:'10', // 默认不传入key则组件自动生成一个Guid
                                                 size_x:2,
                                                 size_y:2,
