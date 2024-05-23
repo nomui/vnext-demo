@@ -4944,7 +4944,8 @@
 	 * @return {Object} Returns the instance of the Gridster class.
 	 */
 	fn.recalculate_faux_grid = function () {
-		var aw = this.$wrapper.width();
+		
+		var aw = this.$wrapper[0].offsetWidth;
 		this.baseX = ($window.width() - aw) / 2;
 		this.baseY = this.$wrapper.offset().top;
 
@@ -4966,6 +4967,7 @@
 		if (this.options.center_widgets) {
 			this.center_widgets();
 		}
+
 
 		return this;
 	};

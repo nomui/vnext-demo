@@ -23,6 +23,9 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     _config() {
+      if (this.grid) {
+        this.grid.destroy()
+      }
       this.setProps({
         classes: {
           'gridster': true,
@@ -170,7 +173,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
           },
           ...this.props.layoutProps
         }).data('gridster');
-      }, 500)
+      }, this.firstRender?500:200)
 
     }
   }
