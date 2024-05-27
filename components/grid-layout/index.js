@@ -60,7 +60,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
             classes:{
               'gridster-list':true
             },
-            children:this._renderList()
+        
           }
         ]
       })
@@ -68,28 +68,34 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     _renderList() {
-      const data = this.props.data.map(itemData=>{
-        return {
-          tag:'li',
-          classes:{
-            'gridster-item':true
-          },
-          attrs: {
-            'data-key': itemData.key,
-            'data-row': itemData.row,
-            'data-col': itemData.col,
-            'data-sizex': itemData.size_x,
-            'data-sizey': itemData.size_y,
-          },
-          children:[itemData.itemRender ? itemData.itemRender() : '', {
-            classes: {
-              'gridster-drag-handler': true
-            }
-          }]
-        }
-      })
+      this.grid.remove_all_widgets();
+ 
+            this.props.data.forEach(n=>{
+              this.addItem(n)
+            })
+
+
+      // const data = this.props.data.map(itemData=>{
+      //   return {
+      //     classes:{
+      //       'gridster-item':true
+      //     },
+      //     attrs: {
+      //       'data-key': itemData.key,
+      //       'data-row': itemData.row,
+      //       'data-col': itemData.col,
+      //       'data-sizex': itemData.size_x,
+      //       'data-sizey': itemData.size_y,
+      //     },
+      //     children:[itemData.itemRender ? itemData.itemRender() : '', {
+      //       classes: {
+      //         'gridster-drag-handler': true
+      //       }
+      //     }]
+      //   }
+      // })
           
-      return data
+      // return data
       
     }
 
@@ -179,13 +185,24 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
           col =1
         }
       }
-      
-      const data = this.getData()
-      data.push({...item,key,row,col,size_x,size_y})
 
-      this.update({
-        data:data
+      const ele = this.grid.add_widget(`<li data-key="${key}"><div class="gridster-drag-handler"></div></li>`, size_x, size_y, col, row)
+      new nomui.Component({
+        reference:ele[0],
+        attrs:{
+          style:{
+            height:'100%'
+          }
+        },
+        children:[item.itemRender?item.itemRender():'',{
+          classes: {
+            'gridster-drag-handler': true
+          }
+        }]
       })
+
+      // todo 更新props.data
+      
 
     }
 
@@ -208,20 +225,42 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     _rendered() {
-      setTimeout(() => {
-        this.grid = $(".gridster .gridster-list").gridster({
-          max_cols: this.props.cols,
-          widget_base_dimensions: ['auto', this.props.widgetHeightBase],
-          widget_margins: [this.props.gutter, this.props.gutter],
-          draggable: {
-            handle: '.gridster-drag-handler'
-          },
-          resize: {
-            enabled: this.props.widgetResizable
-          },
-          ...this.props.layoutProps
-        }).data('gridster');
-      }, this.firstRender?500:200)
+      if (this.firstRender) {
+        setTimeout(() => {
+          this.grid = $(".gridster .gridster-list").gridster({
+            max_cols: this.props.cols,
+            widget_base_dimensions: ['auto', this.props.widgetHeightBase],
+            widget_margins: [this.props.gutter, this.props.gutter],
+            draggable: {
+              handle: '.gridster-drag-handler'
+            },
+            resize: {
+              enabled: this.props.widgetResizable
+            },
+            ...this.props.layoutProps
+          }).data('gridster')
+
+          this._renderList()
+
+          
+        }, 500)
+ 
+  
+      }
+      // setTimeout(() => {
+      //   this.grid = $(".gridster .gridster-list").gridster({
+      //     max_cols: this.props.cols,
+      //     widget_base_dimensions: ['auto', this.props.widgetHeightBase],
+      //     widget_margins: [this.props.gutter, this.props.gutter],
+      //     draggable: {
+      //       handle: '.gridster-drag-handler'
+      //     },
+      //     resize: {
+      //       enabled: this.props.widgetResizable
+      //     },
+      //     ...this.props.layoutProps
+      //   }).data('gridster');
+      // }, this.firstRender?500:200)
 
     }
   }
