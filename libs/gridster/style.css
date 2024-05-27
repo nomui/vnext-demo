@@ -152,7 +152,7 @@
   height: 100%;
 }
 
-.gridster .gs-w > .nom-list-item-content .gridster-drag-handler {
+.gridster .gs-w > .gridster-drag-handler {
   position: absolute;
   top:0;
   bottom: 0;
@@ -178,6 +178,10 @@
 }
 
 
-.gridster.editing .gs-w > .nom-list-item-content .gridster-drag-handler {
+.gridster.editing .gs-w > .gridster-drag-handler {
   display: block;
+}
+
+.gridster ul {
+  list-style: none;
 }

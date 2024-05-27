@@ -32,32 +32,65 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
           'editing': !this.props.readonly
         },
         children: [
-          {
-            component: 'List',
-            itemRender: ({ itemData, item }) => {
-              item.setProps({
-                attrs: {
-                  'data-key': itemData.key,
-                  'data-row': itemData.row,
-                  'data-col': itemData.col,
-                  'data-sizex': itemData.size_x,
-                  'data-sizey': itemData.size_y,
-                }
-              })
-              return {
-                children: [itemData.itemRender ? itemData.itemRender() : '', {
-                  classes: {
-                    'gridster-drag-handler': true
-                  }
-                }],
+          // {
+          //   component: 'List',
+          //   itemRender: ({ itemData, item }) => {
+          //     item.setProps({
+          //       attrs: {
+          //         'data-key': itemData.key,
+          //         'data-row': itemData.row,
+          //         'data-col': itemData.col,
+          //         'data-sizex': itemData.size_x,
+          //         'data-sizey': itemData.size_y,
+          //       }
+          //     })
+          //     return {
+          //       children: [itemData.itemRender ? itemData.itemRender() : '', {
+          //         classes: {
+          //           'gridster-drag-handler': true
+          //         }
+          //       }],
 
-              }
+          //     }
+          //   },
+          //   data: this.props.data
+          // }
+          {
+            tag:'ul',
+            classes:{
+              'gridster-list':true
             },
-            data: this.props.data
+            children:this._renderList()
           }
         ]
       })
 
+    }
+
+    _renderList() {
+      const data = this.props.data.map(itemData=>{
+        return {
+          tag:'li',
+          classes:{
+            'gridster-item':true
+          },
+          attrs: {
+            'data-key': itemData.key,
+            'data-row': itemData.row,
+            'data-col': itemData.col,
+            'data-sizex': itemData.size_x,
+            'data-sizey': itemData.size_y,
+          },
+          children:[itemData.itemRender ? itemData.itemRender() : '', {
+            classes: {
+              'gridster-drag-handler': true
+            }
+          }]
+        }
+      })
+          
+      return data
+      
     }
 
     edit() {
@@ -176,7 +209,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
 
     _rendered() {
       setTimeout(() => {
-        this.grid = $(".gridster ul").gridster({
+        this.grid = $(".gridster .gridster-list").gridster({
           max_cols: this.props.cols,
           widget_base_dimensions: ['auto', this.props.widgetHeightBase],
           widget_margins: [this.props.gutter, this.props.gutter],
