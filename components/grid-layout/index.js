@@ -214,14 +214,8 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     removeItem(key) {
-      this._serializeData()
-      const arr = this.props.data.filter(n=>{
-        return n.key !==key
-      })
-      this.update({
-        data:arr
-      })
-      this.onRemove && this._callHandler(this.props.onRemove)
+      this.grid.remove_widget($(this.element).find(`ul > [data-key=${key}]`))
+      this.onRemove && this._callHandler(this.props.onRemove,{key})
     }
 
     _rendered() {
