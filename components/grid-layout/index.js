@@ -197,25 +197,21 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     _rendered() {
-      if (this.firstRender) {
-        setTimeout(() => {
-          this.grid = $(".gridster .gridster-list").gridster({
-            max_cols: this.props.cols,
-            widget_base_dimensions: ['auto', this.props.widgetHeightBase],
-            widget_margins: [this.props.gutter, this.props.gutter],
-            draggable: {
-              handle: '.gridster-drag-handler'
-            },
-            resize: {
-              enabled: this.props.widgetResizable
-            },
-            ...this.props.layoutProps
-          }).data('gridster')
-          this._renderList()
-        }, 500)
-
-
-      }
+      setTimeout(() => {
+        this.grid = $(".gridster .gridster-list").gridster({
+          max_cols: this.props.cols,
+          widget_base_dimensions: ['auto', this.props.widgetHeightBase],
+          widget_margins: [this.props.gutter, this.props.gutter],
+          draggable: {
+            handle: '.gridster-drag-handler'
+          },
+          resize: {
+            enabled: this.props.widgetResizable
+          },
+          ...this.props.layoutProps
+        }).data('gridster')
+        this._renderList()
+      }, 500)
 
     }
   }
