@@ -17,7 +17,9 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
         widgetHeightBase: 100,
         widgetResizable: true,
         readonly: false,
-        data: []
+        data: [],
+        onCreate: null,
+        onRemove: null
       }
       super(nomui.Component.extendProps(defaults, props), ...mixins)
     }
@@ -32,35 +34,12 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
           'editing': !this.props.readonly
         },
         children: [
-          // {
-          //   component: 'List',
-          //   itemRender: ({ itemData, item }) => {
-          //     item.setProps({
-          //       attrs: {
-          //         'data-key': itemData.key,
-          //         'data-row': itemData.row,
-          //         'data-col': itemData.col,
-          //         'data-sizex': itemData.size_x,
-          //         'data-sizey': itemData.size_y,
-          //       }
-          //     })
-          //     return {
-          //       children: [itemData.itemRender ? itemData.itemRender() : '', {
-          //         classes: {
-          //           'gridster-drag-handler': true
-          //         }
-          //       }],
-
-          //     }
-          //   },
-          //   data: this.props.data
-          // }
           {
-            tag:'ul',
-            classes:{
-              'gridster-list':true
+            tag: 'ul',
+            classes: {
+              'gridster-list': true
             },
-        
+
           }
         ]
       })
@@ -68,35 +47,11 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     _renderList() {
-      this.grid.remove_all_widgets();
- 
-            this.props.data.forEach(n=>{
-              this.addItem(n)
-            })
+      this.grid.remove_all_widgets()
+      this.props.data.forEach(n => {
+        this._addWidget(n)
+      })
 
-
-      // const data = this.props.data.map(itemData=>{
-      //   return {
-      //     classes:{
-      //       'gridster-item':true
-      //     },
-      //     attrs: {
-      //       'data-key': itemData.key,
-      //       'data-row': itemData.row,
-      //       'data-col': itemData.col,
-      //       'data-sizex': itemData.size_x,
-      //       'data-sizey': itemData.size_y,
-      //     },
-      //     children:[itemData.itemRender ? itemData.itemRender() : '', {
-      //       classes: {
-      //         'gridster-drag-handler': true
-      //       }
-      //     }]
-      //   }
-      // })
-          
-      // return data
-      
     }
 
     edit() {
@@ -108,6 +63,59 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
       this.props.readonly = true
       this.element.classList.remove('editing')
     }
+
+    remove() {
+      this.grid.destroy()
+      this.replace({
+        children: ''
+      })
+    }
+
+    addItem(item,prepend) {
+      let { col = 1, row = 1, size_x = 1, size_y = 1, key = nomui.utils.newGuid() } = item
+
+      if (size_x > this.props.cols) {
+        new nomui.Alert({
+          type: 'info',
+          title: `组件横向尺寸不能超过${this.props.cols}`,
+        })
+        return
+      }
+
+      if (!item.col || !item.row) {
+        const pos = this._getlastPosition()
+        let flag = false
+        for (let _row in pos) {
+          if (this.props.cols - pos[_row] >= size_x) {
+
+            flag = true
+            row = _row
+            col = this.props.cols - pos[_row]
+          }
+          if (!flag) {
+            row = _row + 1
+            col = 1
+          }
+
+        }
+        if (prepend) {
+          row = 1
+          col = 1
+        }
+      }
+
+      const obj = {...item,key,col,row,size_x,size_y}
+
+      this._addWidget(obj)
+      this._updateData(obj)
+    }
+
+    removeItem(key) {
+      this.grid.remove_widget($(this.element).find(`ul > [data-key=${key}]`))
+      this._updateData({ key }, true)
+      this.onRemove && this._callHandler(this.props.onRemove, { key })
+    }
+
 
     _serialize() {
       return this.grid.serialize()
@@ -137,85 +145,55 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     _getlastPosition() {
       const arr = this._serialize()
       const map = {}
-      arr.forEach(n=>{
-        const {col,row,size_x,size_y} = n
+      arr.forEach(n => {
+        const { col, row, size_x, size_y } = n
         if (!map[row]) {
           map[row] = 0
         }
         map[row] += size_x
-        for (let i=1;i<size_y;i++) {
-          if (!map[row+i]) {
-            map[row+i] = 0
+        for (let i = 1; i < size_y; i++) {
+          if (!map[row + i]) {
+            map[row + i] = 0
           }
-          map[row+i] += size_x
+          map[row + i] += size_x
         }
       })
       return map
     }
 
-    addItem(item,prepend) {
-      let {col=1,row=1,size_x=1,size_y=1,key=nomui.utils.newGuid()} = item
-
-      if (size_x > this.props.cols) {
-        new nomui.Alert({
-          type: 'info',
-          title: `组件横向尺寸不能超过${this.props.cols}`,
+    _updateData(item, isRemove) {
+      if (isRemove) {
+        this.props.data = this.props.data.filter(x => {
+          return x.key !== item.key
         })
-        return
+      }
+      else if (!this.props.data.includes(x => { return x.key === item.key })) {
+        this.props.data.push(item)
       }
 
-      if (!item.col || !item.row) {
-        const pos = this._getlastPosition()
-        let flag = false
-        for (let _row in pos) {
-          if (this.props.cols - pos[_row] >=size_x) {
+    }
 
-            flag = true
-            row = _row
-            col = this.props.cols - pos[_row]
-          }
-          if (!flag) {
-            row = _row+1
-            col = 1
-          }
-          
-        }
-        if (prepend) {
-          row =1
-          col =1
-        }
-      }
+    _addWidget(item) {
+      const { col, row, size_x, size_y, key  } = item
 
       const ele = this.grid.add_widget(`<li data-key="${key}"><div class="gridster-drag-handler"></div></li>`, size_x, size_y, col, row)
       new nomui.Component({
-        reference:ele[0],
-        attrs:{
-          style:{
-            height:'100%'
+        reference: ele[0],
+        attrs: {
+          style: {
+            height: '100%'
           }
         },
-        children:[item.itemRender?item.itemRender():'',{
+        children: [item.itemRender ? item.itemRender() : '', {
           classes: {
             'gridster-drag-handler': true
           }
         }]
       })
 
-      // todo 更新props.data
-      
 
-    }
+      this.onCreate && this._callHandler(this.props.onCreate, { key })
 
-    remove() {
-      this.grid.destroy()
-      this.replace({
-        children:''
-      })
-    }
-
-    removeItem(key) {
-      this.grid.remove_widget($(this.element).find(`ul > [data-key=${key}]`))
-      this.onRemove && this._callHandler(this.props.onRemove,{key})
     }
 
     _rendered() {
@@ -233,28 +211,11 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
             },
             ...this.props.layoutProps
           }).data('gridster')
-
           this._renderList()
-
-          
         }, 500)
- 
-  
+
+
       }
-      // setTimeout(() => {
-      //   this.grid = $(".gridster .gridster-list").gridster({
-      //     max_cols: this.props.cols,
-      //     widget_base_dimensions: ['auto', this.props.widgetHeightBase],
-      //     widget_margins: [this.props.gutter, this.props.gutter],
-      //     draggable: {
-      //       handle: '.gridster-drag-handler'
-      //     },
-      //     resize: {
-      //       enabled: this.props.widgetResizable
-      //     },
-      //     ...this.props.layoutProps
-      //   }).data('gridster');
-      // }, this.firstRender?500:200)
 
     }
   }
