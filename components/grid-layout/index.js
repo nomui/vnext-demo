@@ -139,6 +139,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
     }
 
     clear() {
+      this.props.data = []
       this.grid.remove_all_widgets()
     }
 
