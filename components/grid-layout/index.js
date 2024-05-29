@@ -90,7 +90,7 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
 
             flag = true
             row = _row
-            col = this.props.cols - pos[_row]
+            col = this.props.cols - pos[_row] - 1
           }
           if (!flag) {
             row = _row + 1
