@@ -113,6 +113,7 @@ define(['grid-layout',], function (GridLayout) {
                                     window.grid = c
                                     refs.gridLayout = c
                                 },
+                                cols:window.innerWidth < 1000?2:6,
                                 data: [
                                     {
                                         key: '1',

@@ -87,7 +87,6 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
         let flag = false
         for (let _row in pos) {
           if (this.props.cols - pos[_row] >= size_x) {
-
             flag = true
             row = _row
             col = this.props.cols - pos[_row] - 1
@@ -171,7 +170,6 @@ define(['jquery-gridster', 'css!libs/gridster/style.css'], function (Gridster) {
       else if (!this.props.data.includes(x => { return x.key === item.key })) {
         this.props.data.push(item)
       }
-
     }
 
     _addWidget(item) {
